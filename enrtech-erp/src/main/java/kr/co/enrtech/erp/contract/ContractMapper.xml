@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Contract">
+
+	<resultMap id="ContractMap" type="kr.co.enrtech.erp.contractt.Contract">
+		<!-- <id property="id" column="user_id" /> -->
+		<result property="contractId" column="contract_id"/>
+		<result property="cnstrctNm" column="cnstrct_nm"/>
+		<result property="contractType1" column="contract_type1"/>
+		<result property="contractType2" column="contract_type2"/>
+		<result property="contractType3" column="contract_type3"/>
+		<result property="contractDt" column="contract_dt"/>
+		<result property="cnstrctWay" column="cnstrct_way"/>
+		<result property="ownCmpnyId" column="own_cmpny_id"/>
+		<result property="cnstrctCmpnyId" column="cnstrct_cmpny_id"/>
+		<result property="cnstrctStartDt" column="cnstrct_start_dt"/>
+		<result property="cnstrctEndDt" column="cnstrct_end_dt"/>
+		<result property="maintenance" column="maintenance"/>
+		<result property="cnstrctPost" column="cnstrct_post"/>
+		<result property="cnstrctAddr1" column="cnstrct_addr1"/>
+		<result property="cnstrctAddr2" column="cnstrct_addr2"/>
+		<result property="cnstrctPhone" column="cnstrct_phone"/>
+		<result property="cnstrctPubMnger" column="cnstrct_pub_mnger"/>
+		<result property="cnstrctRelMnger" column="cnstrct_rel_mnger"/>
+		<result property="mngTeam" column="mng_team"/>
+		<result property="salesMnger" column="sales_mnger"/>
+		<result property="cnstrctMnger" column="cnstrct_mnger"/>
+		<result property="regDt" column="reg_dt"/>
+		<result property="regUserId" column="reg_user_id"/>
+		<result property="uptDt" column="upt_dt"/>
+		<result property="uptUserId" column="upt_user_id"/>
+	</resultMap>
+	
+	<sql id="getContractListBase" >
+        SELECT
+        	contract_id
+        	,cnstrct_nm
+        	,contract_type1
+        	,contract_type2
+        	,contract_type3
+        	,contract_dt
+        	,cnstrct_way
+        	,own_cmpny_id
+        	,cnstrct_cmpny_id
+        	,cnstrct_start_dt
+        	,cnstrct_end_dt
+        	,maintenance
+        	,cnstrct_post
+        	,cnstrct_addr1
+        	,cnstrct_addr2
+        	,cnstrct_phone
+        	,cnstrct_pub_mnger
+        	,cnstrct_rel_mnger
+        	,mng_team
+        	,sales_mnger
+        	,cnstrct_mnger
+        	,reg_dt
+        	,reg_user_id
+        	,upt_dt
+        	,upt_user_id
+        FROM
+        	contract
+        <where>
+			<if test="search != null">
+			user_name LIKE concat('%',#{search},'%')
+			</if>
+		</where>
+		LIMIT #{start}, #{limit}
+    </sql>
+    
+    <select id="getContractList" parameterType="ExtjsGridParam" resultMap="ContractMap">
+        <include refid="getContractListBase"/>
+    </select>
+    
+    <select id="getContractListTotalCount" parameterType="ExtjsGridParam" resultType="int">
+		SELECT COUNT(*)
+		FROM (
+			<include refid="getContractListBase"/>
+		) AS T
+	</select>
+	
+	<select id="getContract" parameterType="kr.co.enrtech.erp.contractt.Contract" resultMap="ContractMap">
+        SELECT
+        	contract_id
+        	,cnstrct_nm
+        	,contract_type1
+        	,contract_type2
+        	,contract_type3
+        	,contract_dt
+        	,cnstrct_way
+        	,own_cmpny_id
+        	,cnstrct_cmpny_id
+        	,cnstrct_start_dt
+        	,cnstrct_end_dt
+        	,maintenance
+        	,cnstrct_post
+        	,cnstrct_addr1
+        	,cnstrct_addr2
+        	,cnstrct_phone
+        	,cnstrct_pub_mnger
+        	,cnstrct_rel_mnger
+        	,mng_team
+        	,sales_mnger
+        	,cnstrct_mnger
+        	,reg_dt
+        	,reg_user_id
+        	,upt_dt
+        	,upt_user_id
+        FROM
+        	contract
+        WHERE
+        	contract_id = #{contractId}
+    </select>
+    
+    <insert id="insertContract" parameterType="kr.co.enrtech.erp.contractt.Contract" >
+        INSERT INTO contract
+        (
+        	contract_id
+        	,cnstrct_nm
+        	,contract_type1
+        	,contract_type2
+        	,contract_type3
+        	,contract_dt
+        	,cnstrct_way
+        	,own_cmpny_id
+        	,cnstrct_cmpny_id
+        	,cnstrct_start_dt
+        	,cnstrct_end_dt
+        	,maintenance
+        	,cnstrct_post
+        	,cnstrct_addr1
+        	,cnstrct_addr2
+        	,cnstrct_phone
+        	,cnstrct_pub_mnger
+        	,cnstrct_rel_mnger
+        	,mng_team
+        	,sales_mnger
+        	,cnstrct_mnger
+        	,reg_dt
+        	,reg_user_id
+        	,upt_dt
+        	,upt_user_id
+        ) VALUES (
+        	#{contractId}
+        	,#{cnstrctNm}
+        	,#{contractType1}
+        	,#{contractType2}
+        	,#{contractType3}
+        	,#{contractDt}
+        	,#{cnstrctWay}
+        	,#{ownCmpnyId}
+        	,#{cnstrctCmpnyId}
+        	,#{cnstrctStartDt}
+        	,#{cnstrctEndDt}
+        	,#{maintenance}
+        	,#{cnstrctPost}
+        	,#{cnstrctAddr1}
+        	,#{cnstrctAddr2}
+        	,#{cnstrctPhone}
+        	,#{cnstrctPubMnger}
+        	,#{cnstrctRelMnger}
+        	,#{mngTeam}
+        	,#{salesMnger}
+        	,#{cnstrctMnger}
+        	,#{regDt}
+        	,#{regUserId}
+        	,#{uptDt}
+        	,#{uptUserId}
+        )
+    </insert>
+    <update id="updateContract" parameterType="kr.co.enrtech.erp.contractt.Contract" >
+        UPDATE contract
+        SET
+        	contract_id = #{contractId}
+        	,cnstrct_nm = #{cnstrctNm}
+        	,contract_type1 = #{contractType1}
+        	,contract_type2 = #{contractType2}
+        	,contract_type3 = #{contractType3}
+        	,contract_dt = #{contractDt}
+        	,cnstrct_way = #{cnstrctWay}
+        	,own_cmpny_id = #{ownCmpnyId}
+        	,cnstrct_cmpny_id = #{cnstrctCmpnyId}
+        	,cnstrct_start_dt = #{cnstrctStartDt}
+        	,cnstrct_end_dt = #{cnstrctEndDt}
+        	,maintenance = #{maintenance}
+        	,cnstrct_post = #{cnstrctPost}
+        	,cnstrct_addr1 = #{cnstrctAddr1}
+        	,cnstrct_addr2 = #{cnstrctAddr2}
+        	,cnstrct_phone = #{cnstrctPhone}
+        	,cnstrct_pub_mnger = #{cnstrctPubMnger}
+        	,cnstrct_rel_mnger = #{cnstrctRelMnger}
+        	,mng_team = #{mngTeam}
+        	,sales_mnger = #{salesMnger}
+        	,cnstrct_mnger = #{cnstrctMnger}
+        	,reg_dt = #{regDt}
+        	,reg_user_id = #{regUserId}
+        	,upt_dt = #{uptDt}
+        	,upt_user_id = #{uptUserId}
+        WHERE
+        	contract_id = #{contractId}
+    </update>
+	<delete id="deleteContract" parameterType="kr.co.enrtech.erp.contractt.Contract" >
+        DELETE FROM contract
+        WHERE
+        	contract_id = #{contractId}
+    </delete>
+</mapper>

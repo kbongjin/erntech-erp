@@ -6,6 +6,16 @@ body {
   text-align: center;
 }
 
+.cnstrct.modal-dialog {
+    width: 900px;
+}
+label.control-label {
+	padding-left: 5px;
+}
+.col-sm-2 {
+	padding-right: 5px;
+}
+
 
 
 .spinner {

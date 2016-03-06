@@ -40,6 +40,16 @@
 	    		*/
 	    		
 	    	});
+			
+			$( "#contractDtPicker" ).datetimepicker({
+				format: 'YYYY-MM-DD'
+			});
+			$( "#cnstrctStartDtPicker" ).datetimepicker({
+				format: 'YYYY-MM-DD'
+			});
+			$( "#cnstrctEndDtPicker" ).datetimepicker({
+				format: 'YYYY-MM-DD'
+			});
 	    	
 	    	
 	    });

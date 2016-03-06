@@ -35,18 +35,26 @@
 
     <div class="container">
 
-      <form class="form-signin" action="dashboard">
+      <form id="loginForm" data-toggle="validator" role="form" class="form-signin" >
         <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <div class="form-group">
+	        <label for="inputID" class="sr-only">Login ID</label>
+	        <input type="text" id="inputID" name="username" class="form-control" placeholder="Login ID" required data-error="로그인 아이디를 입력해주세요.">
+	        <div class="help-block with-errors"></div>
+        </div>
+        <div class="form-group">
+	        <label for="inputPassword" class="sr-only">Password</label>
+	        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required data-error="비밀번호를 입력해주세요.">
+	        <div class="help-block with-errors"></div>
+        </div>
         <div class="checkbox">
           <label>
             <input type="checkbox" value="remember-me"> Remember me
           </label>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <div class="form-group">
+        	<button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button>
+        </div>
       </form>
 
     </div> <!-- /container -->
@@ -54,5 +62,40 @@
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="resources/bower_components/bootstrap/assets/js/ie10-viewport-bug-workaround.js"></script>
+    <script src="resources/bower_components/bootstrap/assets/js/vendor/jquery.min.js"></script>
+    <script src="resources/js/bootstrap-validator.min.js"></script>
+    <script>
+	    $( document ).ready(function() {
+	    	
+	    	$('#loginForm').validator().on('submit', function (e) {
+	    		
+	    		if (e.isDefaultPrevented()) {
+	    			    
+	    		} else {
+	    			
+	    			var request = $.ajax({
+		    			  method : "POST",
+						  url: "/auth/login",
+						  data: $( "form" ).serialize(),
+						  dataType: "json"
+		    		});
+		    		
+		    		request.done(function( responseJson ) {
+		    			//alert("login success.");
+		    			window.location.href = "dashboard";
+		    			
+	    			});
+		    		
+		    		request.fail(function( jqXHR, textStatus ) {
+	    				
+	    			    alert( "Server 실패: 관리자에게 문의하세요. 서버 로그확인 필요.");
+	    			});
+	    		}
+	    		
+	    		e.preventDefault();
+	    	});
+	    	
+	    });
+    </script>
   </body>
 </html>
