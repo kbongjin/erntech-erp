@@ -4,7 +4,9 @@
 	    	
 	    	
 	    	$('#regContract').on('hidden.bs.modal', function (e) {
+	    		// 등록창 닫을때 데이타 reset.
 	    		$( "#regContract form" )[0].reset();
+	    		
 	    	});
 	    	
 			$( "#btnCreate" ).click(function( event ) {
@@ -41,17 +43,10 @@
 	    		
 	    	});
 			
-			$( "#contractDtPicker" ).datetimepicker({
-				format: 'YYYY-MM-DD'
+			$( ".date-picker" ).datepicker({
+				dateFormat: 'yy-mm-dd'
 			});
-			$( "#cnstrctStartDtPicker" ).datetimepicker({
-				format: 'YYYY-MM-DD'
-			});
-			$( "#cnstrctEndDtPicker" ).datetimepicker({
-				format: 'YYYY-MM-DD'
-			});
-	    	
-	    	
+
 	    });
     </script>
       

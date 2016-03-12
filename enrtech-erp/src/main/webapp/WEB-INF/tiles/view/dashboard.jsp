@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+	<div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Dashboard</h1>
+        </div>
+    </div>
+    
 	<div class="panel panel-primary">
 	  <!-- Default panel contents -->
 	  <div class="panel-heading">진행중인 계약</div>
@@ -20,7 +26,7 @@
 		<tbody>
 			<tr>
 				<th scope="row">1</th>
-				<td>공사명11</td>
+				<td><a href="contract/11">공사명111</a></td>
 				<td>발주처11</td>
 				<td>시공사</td>
 				<td>계약일</td>

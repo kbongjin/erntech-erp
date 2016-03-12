@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @version 1.0
  */
 @Controller
-@RequestMapping("/Contract")
+@RequestMapping("/contract")
 public class ContractController {
 	
 	//@Autowired
@@ -31,7 +31,7 @@ public class ContractController {
 	
 	@RequestMapping(value = {"/{cntrId}"}, method=RequestMethod.GET)
     public String getContract(@PathVariable String cntrId) {
-        return "page.contract";
+        return "page.contractMain";
     }
 	
 	@RequestMapping(value = {"/search"})

@@ -13,10 +13,18 @@
         <put-attribute name="common-js" value="/WEB-INF/tiles/view/common-js.jsp" />
         <put-attribute name="body-js" value="" />
     </definition>
+    
+    <definition name="layout.sbadmin" template="/WEB-INF/tiles/layout/sbadminLayout.jsp">
+    	<put-attribute name="left-menu" value="/WEB-INF/tiles/layout/leftMenu.jsp" />
+    	<put-attribute name="common" value="/WEB-INF/tiles/view/common.jsp" />
+        <put-attribute name="body" value="" />
+        <put-attribute name="common-js" value="/WEB-INF/tiles/view/common-js.jsp" />
+        <put-attribute name="body-js" value="" />
+    </definition>
 
     <!-- Pages -->  
 
-    <definition name="page.*" extends="layout.basic">
+    <definition name="page.*" extends="layout.sbadmin">
         <put-attribute name="body" value="/WEB-INF/tiles/view/{1}.jsp" />
         <put-attribute name="body-js" value="/WEB-INF/tiles/view/{1}-js.jsp" />
     </definition>

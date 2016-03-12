@@ -74,9 +74,11 @@ public class SecurityConfig extends WebMvcConfigurerAdapter {
 		@Override
 		public void configure(WebSecurity web) throws Exception {
 			web.ignoring().antMatchers("/", 
-					"/index.html", 
+					"/*.html", 
 					"favicon.ico",
 					"/resources/**",
+					"/resources2/**",
+					"/pages/**",
 
 					"/auth/notLogin*",
 					"/auth/loginFail*", 

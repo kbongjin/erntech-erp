@@ -1,6 +1,4 @@
-body {
-  padding-top: 80px;
-}
+
 .starter-template {
   padding: 40px 15px;
   text-align: center;
@@ -9,13 +7,27 @@ body {
 .cnstrct.modal-dialog {
     width: 900px;
 }
+.modal-open .ui-datepicker{
+	z-index:1151 !important;
+}
+
 label.control-label {
 	padding-left: 5px;
+}
+label.col-sm-2 {
+	width: 15%;
 }
 .col-sm-2 {
 	padding-right: 5px;
 }
 
+label.inner {
+	width: 10%;
+}
+
+.cmain .nav-tabs {
+    margin-bottom: 15px;
+}
 
 
 .spinner {
