@@ -1,7 +1,6 @@
 
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
+#page-wrapper {
+    margin-top: 50px;
 }
 
 .cnstrct.modal-dialog {
@@ -27,6 +26,10 @@ label.inner {
 
 .cmain .nav-tabs {
     margin-bottom: 15px;
+}
+
+.form-control-static {
+	background-color: #eee;
 }
 
 

@@ -29,6 +29,7 @@
     <link href="${res}/dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="${res}/css/jquery-ui.min.css" rel="stylesheet">
     <link href="${res}/css/default.css" rel="stylesheet">
+    <link href="${res}/css/sticky-footer.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="${res}/bower_components/morrisjs/morris.css" rel="stylesheet">
@@ -50,7 +51,7 @@
     <div id="wrapper">
 
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -89,13 +90,20 @@
 
         <div id="page-wrapper">
         
-            <!-- main -->
-			<tiles:insertAttribute name="common" />
-      		<tiles:insertAttribute name="body" />
-            <!-- /main -->
-            
+        	<div id="container">
+	            <!-- main -->
+				<tiles:insertAttribute name="common" />
+	      		<tiles:insertAttribute name="body" />
+	            <!-- /main -->
+            </div>
         </div>
         <!-- /#page-wrapper -->
+        
+        <footer class="footer">
+	      <div class="container">
+	        <p class="text-muted"> footer content</p>
+	      </div>
+	    </footer>
 
     </div>
     <!-- /#wrapper -->

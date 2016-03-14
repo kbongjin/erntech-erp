@@ -77,7 +77,6 @@ public class SecurityConfig extends WebMvcConfigurerAdapter {
 					"/*.html", 
 					"favicon.ico",
 					"/resources/**",
-					"/resources2/**",
 					"/pages/**",
 
 					"/auth/notLogin*",
