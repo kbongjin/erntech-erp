@@ -9,7 +9,9 @@
 
 	<logger name="kr.co.enrtech" level="DEBUG"/>
 
-	<logger name="org.springframework" level="ERROR"/>
+	<logger name="org.springframework" level="INFO"/>
+	<logger name="org.springframework.core.convert" level="DEBUG"/>
+	<logger name="org.springframework.format.support" level="DEBUG"/>
 	<logger name="org.springframework.web" level="DEBUG"/>
 	<logger name="org.springframework.web.websocket" level="DEBUG"/>
 	<logger name="org.springframework.web.context.support.StandardServletEnvironment" level="INFO"/>
@@ -24,7 +26,7 @@
 	<logger name="org.hibernate.engine.transaction" level="DEBUG" />
 	<logger name="org.hibernate.internal.util.EntityPrinter" level="DEBUG" />
 
-	<root level="ERROR">
+	<root level="DEBUG">
 	    <appender-ref ref="CONSOLE" />
 	</root>
 </configuration>

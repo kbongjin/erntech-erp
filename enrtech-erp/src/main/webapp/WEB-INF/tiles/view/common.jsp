@@ -23,27 +23,27 @@
 							<label for="inputIssueType" class="control-label col-sm-2">계약 유형</label>
 							<div class="col-sm-3">
 								<select name="contractType1" class="form-control">
-								  <option>신선</option>
-								  <option>보수</option>
+								  <option value="1">신선</option>
+								  <option value="2">보수</option>
 								</select>
 							</div>
 							<div class="col-sm-3">
 								<select name="contractType2" class="form-control">
-								  <option>수의</option>
-								  <option>입철</option>
+								  <option value="1">수의</option>
+								  <option value="2">입철</option>
 								</select>
 							</div>
 							<div class="col-sm-3">
 								<select name="contractType3" class="form-control">
-								  <option>하도급</option>
-								  <option>물품납품</option>
-								  <option>관급</option>
-								  <option>A/S</option>
+								  <option value="1">하도급</option>
+								  <option value="2">물품납품</option>
+								  <option value="3">관급</option>
+								  <option value="4">A/S</option>
 								</select>
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="contractDt" class="control-label col-sm-2">계약일</label>
+							<label class="control-label col-sm-2">계약일</label>
 							<div class="col-sm-3">
 								<div class='input-group'>
 				                    <input type='text' id="contractDt" name="contractDt" class="date-picker form-control input-sm" required/>
@@ -52,12 +52,12 @@
 				                    </label>
 				                </div>
 			                </div>
-							<label for="inputPJKey" class="control-label col-sm-2">공사범위</label>
+							<label class="control-label col-sm-2">공사범위</label>
 							<div class="col-sm-3">
-								<select name="contractType3" class="form-control">
-								  <option>납품/설치</option>
-								  <option>납품</option>
-								  <option>설치</option>
+								<select name="cnstrctWay" class="form-control">
+								  <option value="1">납품/설치</option>
+								  <option value="2">납품</option>
+								  <option value="3">설치</option>
 								</select>
 							</div>
 						</div>

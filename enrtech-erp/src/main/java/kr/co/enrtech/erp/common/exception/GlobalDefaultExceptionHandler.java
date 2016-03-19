@@ -30,6 +30,7 @@ class GlobalDefaultExceptionHandler {
             throw e;
 
         LOGGER.error(e.getLocalizedMessage(), e);
+        
         SimpleJsonResponse json = new SimpleJsonResponse();
         
         json.setSuccess(false);

@@ -11,12 +11,12 @@
 	    	
 			$( "#btnCreate" ).click(function( event ) {
 				
-				window.location.href = "${pageContext.request.contextPath}/contract/11";
+				//window.location.href = "${pageContext.request.contextPath}/contract/main/11";
 	    		
-	    		/*
+	    		
 	    		var request = $.ajax({
 	    			  method : "POST",
-					  url: "jira/rest/api/2/issue",
+					  url: "contract/create",
 					  data: $( "form" ).serialize(),
 					  dataType: "json"
 	    		});
@@ -24,13 +24,15 @@
 	    		request.done(function( responseJson ) {
     			    //alert(responseJson);
 	    			//alert( "Request failed: " + textStatus );
-    			    $('#success-alert').toggleClass('in');
+    			    $('#success-alert').toggleClass('in');// show
 	    		
 		    		setTimeout(function() {
-		    			$('#success-alert').toggleClass('in');
-		    			
-		    	    }, 4000);
-		    		$("#myModal").modal("hide");
+		    			$('#success-alert').toggleClass('in');// hide
+		    			window.location.href = "${pageContext.request.contextPath}/contract/main/" + responseJson.data;
+		    	    }, 2000);
+		    		$("#regContract").modal("hide");
+		    		
+		    		
 	    			
     			});
 	    		
@@ -39,7 +41,7 @@
     			    alert( "Request failed: " + textStatus );
     			});
 	    		
-	    		*/
+	    		
 	    		
 	    	});
 			

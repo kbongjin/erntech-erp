@@ -15,7 +15,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
  *
  */
 @Configuration
-public class ConfigurationForTiles {
+public class TilesConfig {
 
 	/**
      * Initialise Tiles on application startup and identify the location of the tiles configuration file, tiles.xml.

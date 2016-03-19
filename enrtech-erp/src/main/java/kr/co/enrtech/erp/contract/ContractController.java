@@ -1,10 +1,20 @@
 package kr.co.enrtech.erp.contract;
 
+import javax.servlet.http.HttpServletRequest;
+
+import kr.co.enrtech.erp.common.model.GridJsonResponse;
+import kr.co.enrtech.erp.common.model.SearchListParam;
+import kr.co.enrtech.erp.common.model.SimpleJsonResponse;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * <pre>
@@ -17,8 +27,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/contract")
 public class ContractController {
 	
-	//@Autowired
-	//private ContractService service;
+	private static final Logger LOGGER = LoggerFactory.getLogger(ContractController.class);
+	
+	@Autowired
+	private ContractService service;
 
 	/**
 	 * <pre>
@@ -29,8 +41,11 @@ public class ContractController {
 		// TODO Auto-generated constructor stub
 	}
 	
-	@RequestMapping(value = {"/{cntrId}"}, method=RequestMethod.GET)
-    public String getContract(@PathVariable String cntrId) {
+	@RequestMapping(value = {"/main/{contractId}"}, method=RequestMethod.GET)
+    public String cmain(@PathVariable int contractId, HttpServletRequest req) {
+		
+		req.setAttribute("contractId", contractId);
+		
         return "page.contractMain";
     }
 	
@@ -40,90 +55,55 @@ public class ContractController {
 		System.out.println("---------------------------------------------");
         return "page.contractList";
     }
-	/*
-	@RequestMapping("/list", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	@ResponseBody
-	public GridJsonResponse list(ExtjsGridParam gridParam){
+	public GridJsonResponse list(SearchListParam searchParam){
 	
 		GridJsonResponse jsonRes = new GridJsonResponse();
-		jsonRes.setTotal(service.getContractListTotalCount(gridParam));
-		jsonRes.setList(service.getContractList(gridParam));
+		jsonRes.setTotal(service.getContractListTotalCount(searchParam));
+		jsonRes.setList(service.getContractList(searchParam));
 		
 		return jsonRes;
 	}
 	
-	@RequestMapping("/create")
+	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	@ResponseBody
-	public SimpleJsonResponse create(Contract contract){
+	public SimpleJsonResponse create(Contract contract, SimpleJsonResponse jresp){
 		
-		SimpleJsonResponse jsonRes = new SimpleJsonResponse();
-		try{
-			service.insertContract(contract);
-			jsonRes.setMsg("사용자가 정상적으로 생성되었습니다.");
-			
-		}catch(Exception e){
-			
-			jsonRes.setSuccess(false);
-			jsonRes.setMsg("사용자 생성 중 에러가 발생하였습니다.");
-			
-			e.printStackTrace();
-		}
+		service.insertContract(contract);
+		jresp.setData(contract.getContractId());
 		
+		LOGGER.debug("inserted {} : {}", contract.getContractId(), contract.getCnstrctNm());
 		
-		return jsonRes;
+		return jresp;
 	}
 	
-	@RequestMapping("/update")
+	@RequestMapping(value = "/update", method = RequestMethod.POST)
 	@ResponseBody
-	public SimpleJsonResponse update(Contract contract){
+	public SimpleJsonResponse update(Contract contract, SimpleJsonResponse jresp){
 		
-		SimpleJsonResponse jsonRes = new SimpleJsonResponse();
-		try{
-			service.updateContract(contract);
-			jsonRes.setMsg("사용자 정보가 정상적으로 수정되었습니다.");
-			
-		}catch(Exception e){
-			
-			jsonRes.setSuccess(false);
-			jsonRes.setMsg("사용자 정보 수정 중 에러가 발생하였습니다.");
-			
-			e.printStackTrace();
-		}
+		service.updateContract(contract);
 		
-		
-		return jsonRes;
+		return jresp;
 	}
 	
-	@RequestMapping("/delete")
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	@ResponseBody
-	public SimpleJsonResponse delete(Contract contract){
+	public SimpleJsonResponse delete(@RequestParam(value="contractId") int contractId, SimpleJsonResponse jresp){
 		
-		SimpleJsonResponse jsonRes = new SimpleJsonResponse();
-		try{
-			service.deleteContract(contract);
-			jsonRes.setMsg("사용자 정보가 정상적으로 삭제되었습니다.");
-			
-		}catch(Exception e){
-			
-			jsonRes.setSuccess(false);
-			jsonRes.setMsg("사용자 정보 삭제 중 에러가 발생하였습니다.");
-			
-			e.printStackTrace();
-		}
+		service.deleteContract(contractId);
 		
-		return jsonRes;
+		return jresp;
 	}
 	
-	@RequestMapping("/getContract", method = RequestMethod.GET)
+	@RequestMapping(value = "/{contractId}", method = RequestMethod.GET)
 	@ResponseBody
-	public DtoJsonResponse getContract(Contract contract){
+	public Contract getContract(@PathVariable int contractId){
 	
-		DtoJsonResponse jsonRes = new DtoJsonResponse();
 		
-		jsonRes.setData(service.getContract(contract));
-		
-		return jsonRes;
+		return service.getContract(contractId);
 	}
-*/
+
 }
 //end of ContractController.java

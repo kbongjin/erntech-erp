@@ -7,6 +7,5 @@
 	    	$('#searchNav').addClass("active");
 	    	
 	    	
-	    	
 	    });
     </script>

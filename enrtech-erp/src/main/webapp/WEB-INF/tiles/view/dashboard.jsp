@@ -24,24 +24,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td><a href="contract/11">공사명111</a></td>
-				<td>발주처11</td>
-				<td>시공사</td>
-				<td>계약일</td>
-				<td>1,000</td>
-				<td>계약등록</td>
-			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>공사명22</td>
-				<td>발주처22</td>
-				<td>시공사</td>
-				<td>계약일</td>
-				<td>3,000</td>
-				<td>계약등록</td>
-			</tr>
+			
 		</tbody>
 	  </table>
 	</div>

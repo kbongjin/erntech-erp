@@ -1,6 +1,11 @@
 
 package kr.co.enrtech.erp.contract;
 
+import kr.co.enrtech.erp.common.model.JsonDateYMDSerializer;
+
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+
 /**
  * <pre>
  * 
@@ -19,8 +24,8 @@ public class Contract {
 	private String cnstrctWay;
 	private String ownCmpnyId;
 	private String cnstrctCmpnyId;
-	private java.sql.Date cnstrctStartDt;
-	private java.sql.Date cnstrctEndDt;
+	private java.util.Date cnstrctStartDt;
+	private java.util.Date cnstrctEndDt;
 	private String maintenance;
 	private String cnstrctPost;
 	private String cnstrctAddr1;
@@ -31,11 +36,11 @@ public class Contract {
 	private String mngTeam;
 	private String salesMnger;
 	private String cnstrctMnger;
-	private java.sql.Date regDt;
+	private java.util.Date regDt;
 	private String regUserId;
-	private java.sql.Date uptDt;
+	private java.util.Date uptDt;
 	private String uptUserId;
-
+	
 	/**
 	 * <pre>
 	 * 
@@ -118,6 +123,7 @@ public class Contract {
 	/**
 	 * @return the contractDt
 	 */
+	@JsonSerialize(using=JsonDateYMDSerializer.class)
 	public java.util.Date getContractDt() {
 		return contractDt;
 	}
@@ -174,28 +180,28 @@ public class Contract {
 	/**
 	 * @return the cnstrctStartDt
 	 */
-	public java.sql.Date getCnstrctStartDt() {
+	public java.util.Date getCnstrctStartDt() {
 		return cnstrctStartDt;
 	}
 
 	/**
 	 * @param cnstrctStartDt the cnstrctStartDt to set
 	 */
-	public void setCnstrctStartDt(java.sql.Date cnstrctStartDt) {
+	public void setCnstrctStartDt(java.util.Date cnstrctStartDt) {
 		this.cnstrctStartDt = cnstrctStartDt;
 	}
 
 	/**
 	 * @return the cnstrctEndDt
 	 */
-	public java.sql.Date getCnstrctEndDt() {
+	public java.util.Date getCnstrctEndDt() {
 		return cnstrctEndDt;
 	}
 
 	/**
 	 * @param cnstrctEndDt the cnstrctEndDt to set
 	 */
-	public void setCnstrctEndDt(java.sql.Date cnstrctEndDt) {
+	public void setCnstrctEndDt(java.util.Date cnstrctEndDt) {
 		this.cnstrctEndDt = cnstrctEndDt;
 	}
 
@@ -342,14 +348,14 @@ public class Contract {
 	/**
 	 * @return the regDt
 	 */
-	public java.sql.Date getRegDt() {
+	public java.util.Date getRegDt() {
 		return regDt;
 	}
 
 	/**
 	 * @param regDt the regDt to set
 	 */
-	public void setRegDt(java.sql.Date regDt) {
+	public void setRegDt(java.util.Date regDt) {
 		this.regDt = regDt;
 	}
 
@@ -370,14 +376,14 @@ public class Contract {
 	/**
 	 * @return the uptDt
 	 */
-	public java.sql.Date getUptDt() {
+	public java.util.Date getUptDt() {
 		return uptDt;
 	}
 
 	/**
 	 * @param uptDt the uptDt to set
 	 */
-	public void setUptDt(java.sql.Date uptDt) {
+	public void setUptDt(java.util.Date uptDt) {
 		this.uptDt = uptDt;
 	}
 

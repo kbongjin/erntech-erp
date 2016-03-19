@@ -3,7 +3,7 @@
 
 <mapper namespace="Contract">
 
-	<resultMap id="ContractMap" type="kr.co.enrtech.erp.contractt.Contract">
+	<resultMap id="ContractMap" type="kr.co.enrtech.erp.contract.Contract">
 		<!-- <id property="id" column="user_id" /> -->
 		<result property="contractId" column="contract_id"/>
 		<result property="cnstrctNm" column="cnstrct_nm"/>
@@ -69,18 +69,18 @@
 		LIMIT #{start}, #{limit}
     </sql>
     
-    <select id="getContractList" parameterType="ExtjsGridParam" resultMap="ContractMap">
+    <select id="getContractList" parameterType="SearchListParam" resultMap="ContractMap">
         <include refid="getContractListBase"/>
     </select>
     
-    <select id="getContractListTotalCount" parameterType="ExtjsGridParam" resultType="int">
+    <select id="getContractListTotalCount" parameterType="SearchListParam" resultType="int">
 		SELECT COUNT(*)
 		FROM (
 			<include refid="getContractListBase"/>
 		) AS T
 	</select>
 	
-	<select id="getContract" parameterType="kr.co.enrtech.erp.contractt.Contract" resultMap="ContractMap">
+	<select id="getContract" parameterType="int" resultMap="ContractMap">
         SELECT
         	contract_id
         	,cnstrct_nm
@@ -113,7 +113,8 @@
         	contract_id = #{contractId}
     </select>
     
-    <insert id="insertContract" parameterType="kr.co.enrtech.erp.contractt.Contract" >
+    <insert id="insertContract" parameterType="kr.co.enrtech.erp.contract.Contract" >
+    	<selectKey resultType="int" keyProperty="contractId" order="BEFORE">SELECT ifnull(max(contract_id), 0) + 1 FROM contract</selectKey>
         INSERT INTO contract
         (
         	contract_id
@@ -163,13 +164,13 @@
         	,#{mngTeam}
         	,#{salesMnger}
         	,#{cnstrctMnger}
-        	,#{regDt}
+        	,NOW()
         	,#{regUserId}
-        	,#{uptDt}
+        	,NOW()
         	,#{uptUserId}
         )
     </insert>
-    <update id="updateContract" parameterType="kr.co.enrtech.erp.contractt.Contract" >
+    <update id="updateContract" parameterType="kr.co.enrtech.erp.contract.Contract" >
         UPDATE contract
         SET
         	contract_id = #{contractId}
@@ -200,7 +201,7 @@
         WHERE
         	contract_id = #{contractId}
     </update>
-	<delete id="deleteContract" parameterType="kr.co.enrtech.erp.contractt.Contract" >
+	<delete id="deleteContract" parameterType="int" >
         DELETE FROM contract
         WHERE
         	contract_id = #{contractId}
