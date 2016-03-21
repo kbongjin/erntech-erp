@@ -23,7 +23,7 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 @Component
 public class JsonDateYMDSerializer extends JsonSerializer<Date> {
 	
-	private static final DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+	private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
 	@Override
 	public void serialize(Date value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {

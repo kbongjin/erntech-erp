@@ -8,6 +8,7 @@
 	    	
 	    	var start_num = 1;
 	    	
+	    	showLoading('#ingTbl',{ message: '<img src="${res}/css/images/busy.gif" /> loading...' }); 
 	    	var request = $.ajax({
 	  			  method : "GET",
 					  url: "contract/list",
@@ -26,11 +27,6 @@
 			  		$('#ingTbl > tbody:last').append('<tr><th>' + (index+start_num) + '</th><td>' + nmLink + '</td><td>' + item.ownCmpnyId + '</td><td>' + item.cnstrctCmpnyId + '</td><td>' + item.contractDt + '</td><td> </td><td> </td></tr>');
 				});
 			
-			});
-			 
-			request.fail(function( jqXHR, textStatus ) {
-				
-			    alert( "Request failed: " + textStatus );
 			});
 	    	
 	    });

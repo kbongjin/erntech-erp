@@ -13,37 +13,37 @@
 		    	<div class="form-group">
 					<label for="cnstrctNm" class="control-label col-sm-2">공사명 :</label>
 					<div class="col-sm-9">
-						<p class="form-control-static">공사명111</p>
+						<p class="form-control-static cnstrctNm"></p>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="inputIssueType" class="control-label col-sm-2">계약 유형 :</label>
 					<div class="col-sm-9">
-						<p class="form-control-static">신선/보수, 수의/입찰, 하도급/물품납품/관급/AS</p>
+						<p class="form-control-static"><span class="contractType1"></span>, <span class="contractType2"></span>, <span class="contractType3"></span></p>
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2">발주처 :</label>
 					<div class="col-sm-4">
-						<p class="form-control-static">발주처</p>
+						<p class="form-control-static ownCmpnyId"></p>
 					</div>
 					<label class="control-label col-sm-2">시공사 :</label>
 					<div class="col-sm-4">
-						<p class="form-control-static">시공사11</p>
+						<p class="form-control-static cnstrctCmpnyId"></p>
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="cnstrctStartDt" class="control-label col-sm-2">착공예정일 :</label>
 					<div class="col-sm-2">
-						<p class="form-control-static">2016-03-12</p>
+						<p class="form-control-static cnstrctStartDt"></p>
 	                </div>
 					<label for="cnstrctEndDt" class="control-label col-sm-2">준공예정일 :</label>
 					<div class="col-sm-2">
-						<p class="form-control-static">2016-03-12</p>
+						<p class="form-control-static cnstrctEndDt"></p>
 	                </div>
 	                <label for="maintenance" class="control-label col-sm-2">하자보증기간 :</label>
 					<div class="col-sm-2">
-						<p class="form-control-static">1년</p>
+						<p class="form-control-static maintenance"></p>
 					</div>
 				</div>
 				

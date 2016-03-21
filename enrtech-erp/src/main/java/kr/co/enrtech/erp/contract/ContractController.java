@@ -74,7 +74,7 @@ public class ContractController {
 		service.insertContract(contract);
 		jresp.setData(contract.getContractId());
 		
-		LOGGER.debug("inserted {} : {}", contract.getContractId(), contract.getCnstrctNm());
+		LOGGER.debug("inserted {} : {} __________________________________", contract.getContractId(), contract.getCnstrctNm());
 		
 		return jresp;
 	}

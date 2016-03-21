@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%
-	pageContext.setAttribute("res", request.getContextPath() + "/resources") ;
+	request.setAttribute("res", request.getContextPath() + "/resources") ;
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +30,7 @@
     <link href="${res}/css/jquery-ui.min.css" rel="stylesheet">
     <link href="${res}/css/default.css" rel="stylesheet">
     <link href="${res}/css/sticky-footer.css" rel="stylesheet">
+    <link href="${res}/css/jquery.growl.css" rel="stylesheet">
 
     <!-- Morris Charts CSS -->
     <link href="${res}/bower_components/morrisjs/morris.css" rel="stylesheet">
@@ -47,7 +48,6 @@
 </head>
 
 <body>
-
     <div id="wrapper">
 
         <!-- Navigation -->
@@ -126,6 +126,9 @@
     <!-- SB Admin Theme JavaScript -->
     <script src="${res}/dist/js/sb-admin-2.js"></script>
     <script src="${res}/js/jquery-ui.min.js"></script>
+    <script src="${res}/js/jquery.blockUI.js"></script>
+    <script src="${res}/js/jquery.growl.js"></script>
+    <script src="${res}/js/jquery.loadJSON.js"></script>
     
     <!-- Our JavaScript -->
 	<tiles:insertAttribute name="common-js" />

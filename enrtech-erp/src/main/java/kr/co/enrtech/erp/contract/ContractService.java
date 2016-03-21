@@ -6,6 +6,7 @@ import kr.co.enrtech.erp.common.model.SearchListParam;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -25,6 +26,7 @@ public class ContractService {
 		// TODO Auto-generated constructor stub
 	}
 	
+	@Transactional
 	public void insertContract(Contract contract){
 		repository.insertContract(contract);
 	}
