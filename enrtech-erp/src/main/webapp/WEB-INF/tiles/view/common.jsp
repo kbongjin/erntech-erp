@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/tld/tags.tld" prefix="t" %>
 	<!-- Modal -->
 	<div class="modal fade" id="regContract" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="cnstrct modal-dialog" role="document">
@@ -22,10 +23,13 @@
 						<div class="form-group">
 							<label for="inputIssueType" class="control-label col-sm-2">계약 유형</label>
 							<div class="col-sm-3">
+							<!-- 
 								<select name="contractType1" class="form-control">
 								  <option value="1">신선</option>
 								  <option value="2">보수</option>
 								</select>
+								 -->
+								<t:code group_id="C_TYPE" name="contractType1" styleClass="form-control" firstOption="::선택하세요::"/>
 							</div>
 							<div class="col-sm-3">
 								<select name="contractType2" class="form-control">

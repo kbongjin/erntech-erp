@@ -1,6 +1,7 @@
 
 package kr.co.enrtech.erp.contract;
 
+import kr.co.enrtech.erp.common.model.JsonDateSerializer;
 import kr.co.enrtech.erp.common.model.JsonDateYMDSerializer;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -180,6 +181,7 @@ public class Contract {
 	/**
 	 * @return the cnstrctStartDt
 	 */
+	@JsonSerialize(using=JsonDateYMDSerializer.class)
 	public java.util.Date getCnstrctStartDt() {
 		return cnstrctStartDt;
 	}
@@ -194,6 +196,7 @@ public class Contract {
 	/**
 	 * @return the cnstrctEndDt
 	 */
+	@JsonSerialize(using=JsonDateYMDSerializer.class)
 	public java.util.Date getCnstrctEndDt() {
 		return cnstrctEndDt;
 	}
@@ -348,6 +351,7 @@ public class Contract {
 	/**
 	 * @return the regDt
 	 */
+	@JsonSerialize(using=JsonDateSerializer.class)
 	public java.util.Date getRegDt() {
 		return regDt;
 	}
@@ -376,6 +380,7 @@ public class Contract {
 	/**
 	 * @return the uptDt
 	 */
+	@JsonSerialize(using=JsonDateSerializer.class)
 	public java.util.Date getUptDt() {
 		return uptDt;
 	}

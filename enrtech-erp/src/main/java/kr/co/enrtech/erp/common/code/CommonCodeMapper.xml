@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CommonCode">
+
+	<resultMap id="CommonCodeMap" type="kr.co.enrtech.erp.common.code.CommonCode">
+		<!-- <id property="id" column="user_id" /> -->
+		<result property="gropId" column="grop_id"/>
+		<result property="code" column="code"/>
+		<result property="codeNm" column="code_nm"/>
+		<result property="prtoSeq" column="prto_seq"/>
+		<result property="desc" column="cd_desc"/>
+	</resultMap>
+	
+	<sql id="getCommonCodeListBase" >
+        SELECT
+        	grop_id
+        	,code
+        	,code_nm
+        	,prto_seq
+        	,cd_desc
+        FROM
+        	common_code
+        <where>
+			<if test="search != null">
+			user_name LIKE concat('%',#{search},'%')
+			</if>
+			<if test="search != null">
+			user_name LIKE concat('%',#{search},'%')
+			</if>
+		</where>
+		ORDER BY
+			grop_id, prto_seq ASC
+		<if test="start != null">
+		LIMIT #{start}, #{limit}
+		</if>
+    </sql>
+    
+    <select id="getCommonCodeList" parameterType="string" resultMap="CommonCodeMap">
+        SELECT
+        	grop_id
+        	,code
+        	,code_nm
+        	,prto_seq
+        	,cd_desc
+        FROM
+        	common_code
+        <where>
+			<if test="gropId != null" >
+			grop_id = #{gropId}
+			</if>
+		</where>
+		ORDER BY
+			grop_id, prto_seq ASC
+    </select>
+    
+    <select id="getCommonCodeListTotalCount" parameterType="SearchListParam" resultType="int">
+		SELECT COUNT(*)
+		FROM (
+			<include refid="getCommonCodeListBase"/>
+		) AS T
+	</select>
+	
+	<select id="getCommonCode" parameterType="kr.co.enrtech.erp.common.code.CommonCode" resultMap="CommonCodeMap">
+        SELECT
+        	grop_id
+        	,code
+        	,code_nm
+        	,prto_seq
+        	,cd_desc
+        FROM
+        	common_code
+        WHERE
+        	code = #{code}
+        	AND grop_id = #{gropId}
+    </select>
+    
+    <insert id="insertCommonCode" parameterType="kr.co.enrtech.erp.common.code.CommonCode" >
+        INSERT INTO common_code
+        (
+        	grop_id
+        	,code
+        	,code_nm
+        	,prto_seq
+        	,cd_desc
+        ) VALUES (
+        	#{gropId}
+        	,#{code}
+        	,#{codeNm}
+        	,#{prtoSeq}
+        	,#{desc}
+        )
+    </insert>
+    <update id="updateCommonCode" parameterType="kr.co.enrtech.erp.common.code.CommonCode" >
+        UPDATE common_code
+        SET
+        	grop_id = #{gropId}
+        	,code = #{code}
+        	,code_nm = #{codeNm}
+        	,prto_seq = #{prtoSeq}
+        	,cd_desc = #{desc}
+        WHERE
+        	code = #{code}
+        	AND grop_id = #{gropId}
+    </update>
+	<delete id="deleteCommonCode" parameterType="kr.co.enrtech.erp.common.code.CommonCode" >
+        DELETE FROM common_code
+        WHERE
+        	code = #{code}
+        	AND grop_id = #{gropId}
+    </delete>
+</mapper>
