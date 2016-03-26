@@ -1,5 +1,5 @@
 
-package kr.co.enrtech.erp.common.model;
+package kr.co.enrtech.erp.common.converter;
 
 import java.io.IOException;
 import java.text.DateFormat;
@@ -29,7 +29,6 @@ public class JsonDateYMDSerializer extends JsonSerializer<Date> {
 	public void serialize(Date value, JsonGenerator jgen, SerializerProvider provider) throws IOException, JsonProcessingException {
 		String formattedDate = df.format(value);
 		jgen.writeString(formattedDate);
-		
 	}
 
 }

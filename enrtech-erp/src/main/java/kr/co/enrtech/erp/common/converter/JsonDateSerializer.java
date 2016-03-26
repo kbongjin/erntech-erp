@@ -1,5 +1,5 @@
 
-package kr.co.enrtech.erp.common.model;
+package kr.co.enrtech.erp.common.converter;
 
 import java.io.IOException;
 import java.text.DateFormat;

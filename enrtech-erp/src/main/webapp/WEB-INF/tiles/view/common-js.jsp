@@ -22,46 +22,81 @@
 	    		
 	    	});
 	    	
-			$( "#btnCreate" ).click(function( event ) {
-				
-				//window.location.href = "${pageContext.request.contextPath}/contract/main/11";
+	    	$('#regContract').on('shown.bs.modal', function (e) {
 	    		
-	    		
-	    		var request = $.ajax({
-	    			  method : "POST",
-					  url: "contract/create",
-					  data: $( "form" ).serialize(),
-					  dataType: "json"
-	    		});
-	    		
-	    		request.done(function( responseJson ) {
-    			    //alert(responseJson);
-	    			//alert( "Request failed: " + textStatus );
-    			    $('#fly-alert').toggleClass('in');// show
-	    		
-		    		setTimeout(function() {
-		    			$('#fly-alert').toggleClass('in');// hide
-		    			window.location.href = "${pageContext.request.contextPath}/contract/main/" + responseJson.data;
-		    	    }, 3000);
-		    		$("#regContract").modal("hide");
-		    		
-	    			
-    			});
-	    		
+	    		$("#cnstrctNm").focus();
 	    		
 	    	});
+	    	
 			
+	    	
+	    	$('#regContract form').on('submit', function (e) {
+	    		
+				e.preventDefault();
+				
+				if( $('#regContract form').isValid() ) {
+					
+					var request = $.ajax({
+		    			  method : "POST",
+						  url: "${pageContext.request.contextPath}/contract/create",
+						  data: $( "#regContract form" ).serialize(),
+						  dataType: "json"
+		    	   });
+		    		
+		    		request.done(function( responseJson ) {
+	    			    //alert(responseJson);
+		    			//alert( "Request failed: " + textStatus );
+		    			
+			    		setTimeout(function() {
+			    			window.location.href = "${pageContext.request.contextPath}/contract/main/" + responseJson.data;
+			    	    }, 1000);
+			    		$("#regContract").modal("hide");
+		    			
+	    			});
+				}
+	    		
+				return false;
+	    		
+	    	});
+	    	
+			
+	    	$.validate({
+	    		validateOnBlur : false,
+	    		errorMessagePosition : 'top',
+	    		language : {
+	    	        errorTitle: '입력 오류!',
+	    	        requiredFields: '필수 입력항목이 누락되었습니다. 모든 필수항목(붉은색)을 입력해주세요.'
+	    		}
+	    	});
 			$( ".date-picker" ).datepicker({
 				dateFormat: 'yy-mm-dd'
 			});
 			
 			$(document).ajaxStop(hideLoading);
 			
+			$( document ).ajaxSuccess(function( event, xhr, settings ) {
+			  if ( settings.url.lastIndexOf('create') > -1 || settings.url.lastIndexOf('update') > -1) {
+				  $.growl.notice({ message: "저장 완료!" });
+			  } else if ( settings.url.lastIndexOf('delete') > -1 ) {
+				  $.growl.notice({ message: "삭제 완료!" });
+			  }
+			});
+			
 			$( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
 			    //alert( "Error : " + thrownError + " of " + settings.url );
 				$.growl.error({ message: "Error : " + thrownError + " of " + settings.url });
 			});
-			
+						
+			$.confirm.options = {
+			    text: "삭제 하시겠습니까?",
+			    title: '',
+			    confirmButton: "Yes",
+			    cancelButton: "Cancel",
+			    post: false,
+			    confirmButtonClass: "btn-warning btn-sm",
+			    cancelButtonClass: "btn-default btn-sm",
+			    dialogClass: "modal-dialog modal-sm"
+			}
 
 	    });
     </script>

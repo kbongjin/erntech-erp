@@ -122,13 +122,16 @@
     <script src="${res}/bower_components/morrisjs/morris.min.js"></script>
     <script src="${res}/js/morris-data.js"></script>
 	 -->
-	 
+	<script src="${res}/js/jquery.form-validator.min.js"></script>
+	
     <!-- SB Admin Theme JavaScript -->
     <script src="${res}/dist/js/sb-admin-2.js"></script>
     <script src="${res}/js/jquery-ui.min.js"></script>
     <script src="${res}/js/jquery.blockUI.js"></script>
     <script src="${res}/js/jquery.growl.js"></script>
     <script src="${res}/js/jquery.loadJSON.js"></script>
+    <script src="${res}/js/json2.js"></script>
+    <script src="${res}/js/jquery.confirm.min.js"></script>
     
     <!-- Our JavaScript -->
 	<tiles:insertAttribute name="common-js" />

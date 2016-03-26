@@ -63,6 +63,7 @@ public class CodeTag extends TagSupport {
 	protected int arrange;       //radio, checkbox 인경우 정렬해서 보여주기위한 한row의 column 값.
 	protected String color;      //코드별 색깔을 달리 하기위해 (ref_val1, 2, 3 중 하나).
 	protected String firstOption;
+	protected String attr;
 
 
 	public CodeTag() {
@@ -229,6 +230,14 @@ public class CodeTag extends TagSupport {
 
 		this.defaultSelected = defaultSelected_;
 	}
+	
+	public String getAttr() {
+        return attr;
+    }
+
+    public void setAttr(String attr) {
+        this.attr = attr;
+    }
 
 	@SuppressWarnings("unchecked")
 	public String makeTag()throws Exception{
@@ -406,7 +415,13 @@ public class CodeTag extends TagSupport {
 			}
 
 			if(!StringUtils.isEmpty(this.event)){
-				tag.append("" + this.event + "");
+				tag.append("" + this.event + " ");
+			}
+			
+			if(!StringUtils.isEmpty(this.attr)){
+				tag.append("");
+				tag.append(this.attr);
+				tag.append(" ");
 			}
 
 			tag.append(">");

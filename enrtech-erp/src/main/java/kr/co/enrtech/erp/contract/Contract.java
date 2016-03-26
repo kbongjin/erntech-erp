@@ -1,8 +1,9 @@
 
 package kr.co.enrtech.erp.contract;
 
-import kr.co.enrtech.erp.common.model.JsonDateSerializer;
-import kr.co.enrtech.erp.common.model.JsonDateYMDSerializer;
+import kr.co.enrtech.erp.common.code.CommonCodeHandler;
+import kr.co.enrtech.erp.common.converter.JsonDateSerializer;
+import kr.co.enrtech.erp.common.converter.JsonDateYMDSerializer;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -37,10 +38,17 @@ public class Contract {
 	private String mngTeam;
 	private String salesMnger;
 	private String cnstrctMnger;
+	private String state;
 	private java.util.Date regDt;
-	private String regUserId;
+	private String regUser;
 	private java.util.Date uptDt;
-	private String uptUserId;
+	private String uptUser;
+	
+	private String contractType1Nm;
+	private String contractType2Nm;
+	private String contractType3Nm;
+	private String cnstrctWayNm;
+	private String stateNm;
 	
 	/**
 	 * <pre>
@@ -348,6 +356,14 @@ public class Contract {
 		this.cnstrctMnger = cnstrctMnger;
 	}
 
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 	/**
 	 * @return the regDt
 	 */
@@ -364,17 +380,17 @@ public class Contract {
 	}
 
 	/**
-	 * @return the regUserId
+	 * @return the regUser
 	 */
-	public String getRegUserId() {
-		return regUserId;
+	public String getRegUser() {
+		return regUser;
 	}
 
 	/**
-	 * @param regUserId the regUserId to set
+	 * @param regUser the regUser to set
 	 */
-	public void setRegUserId(String regUserId) {
-		this.regUserId = regUserId;
+	public void setRegUser(String regUser) {
+		this.regUser = regUser;
 	}
 
 	/**
@@ -393,17 +409,57 @@ public class Contract {
 	}
 
 	/**
-	 * @return the uptUserId
+	 * @return the uptUser
 	 */
-	public String getUptUserId() {
-		return uptUserId;
+	public String getUptUser() {
+		return uptUser;
 	}
 
 	/**
-	 * @param uptUserId the uptUserId to set
+	 * @param uptUser the uptUser to set
 	 */
-	public void setUptUserId(String uptUserId) {
-		this.uptUserId = uptUserId;
+	public void setUptUser(String uptUser) {
+		this.uptUser = uptUser;
+	}
+
+	public String getContractType1Nm() {
+		return contractType1Nm;
+	}
+
+	public void setContractType1Nm(String contractType1Nm) {
+		this.contractType1Nm = contractType1Nm;
+	}
+
+	public String getContractType2Nm() {
+		return contractType2Nm;
+	}
+
+	public void setContractType2Nm(String contractType2Nm) {
+		this.contractType2Nm = contractType2Nm;
+	}
+
+	public String getContractType3Nm() {
+		return contractType3Nm;
+	}
+
+	public void setContractType3Nm(String contractType3Nm) {
+		this.contractType3Nm = contractType3Nm;
+	}
+
+	public String getStateNm() {
+		return stateNm;
+	}
+
+	public void setStateNm(String stateNm) {
+		this.stateNm = stateNm;
+	}
+
+	public String getCnstrctWayNm() {
+		return cnstrctWayNm;
+	}
+
+	public void setCnstrctWayNm(String cnstrctWayNm) {
+		this.cnstrctWayNm = cnstrctWayNm;
 	}
 
 }

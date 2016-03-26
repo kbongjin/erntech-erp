@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="CommonCode">
+<mapper namespace="enr.CommonCode">
 
 	<resultMap id="CommonCodeMap" type="kr.co.enrtech.erp.common.code.CommonCode">
 		<!-- <id property="id" column="user_id" /> -->

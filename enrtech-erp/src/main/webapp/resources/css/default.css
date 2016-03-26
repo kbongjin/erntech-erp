@@ -30,9 +30,15 @@ label.inner {
 
 .form-control-static {
 	background-color: #eee;
+	padding-left: 5px;
+	margin-right: 8px;
 }
 
+button.modify {
+	margin-right: 15px;
+}
 
+/*
 .spinner {
   display: inline-block;
   opacity: 0;
@@ -50,7 +56,7 @@ label.inner {
 
 .has-spinner.active .spinner {
   opacity: 1;
-  width: auto; /* This doesn't work, just fix for unkown width elements */
+  width: auto;
 }
 
 .has-spinner.btn-mini.active .spinner {
@@ -93,8 +99,8 @@ label.inner {
   top: 10%;
   z-index: 9000;
 }
-
-/* fly alert */
+*/
+/* fly alert
 .flyover {
    margin-top:-200px;
    overflow: hidden;
@@ -109,3 +115,4 @@ label.inner {
   margin-top: 5px;
 
 }
+ */

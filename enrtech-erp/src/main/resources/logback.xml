@@ -19,6 +19,7 @@
 	<logger name="org.springframework.security" level="DEBUG"/>
 
 	<logger name="org.mybatis" level="DEBUG" />
+	<logger name="enr" level="DEBUG"/>
 
 
 	<root level="ERROR">

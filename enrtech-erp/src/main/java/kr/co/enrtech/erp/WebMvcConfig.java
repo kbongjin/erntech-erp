@@ -21,6 +21,7 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Override
 	public void addFormatters(FormatterRegistry registry) {
 		
+		// 'yyyy-MM-dd' format string to Date converting.
 		registry.addFormatter(new DateFormatter("yyyy-MM-dd"));
 	}
 

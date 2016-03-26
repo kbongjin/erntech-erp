@@ -51,27 +51,27 @@ public class ContractRepository extends AbstractBaseDao {
 	}
 
 	public List<Contract> getContractList(SearchListParam searchParam){
-		return sqlSession.selectList("Contract.getContractList", searchParam);
+		return sqlSession.selectList("enr.Contract.getContractList", searchParam);
 	}
 	
 	public int getContractListTotalCount(SearchListParam searchParam){
 		
-		return sqlSession.selectOne("Contract.getContractListTotalCount", searchParam);
+		return sqlSession.selectOne("enr.Contract.getContractListTotalCount", searchParam);
 	}
 	
 	public Contract getContract(int contractId){
-		return sqlSession.selectOne("Contract.getContract", contractId);
+		return sqlSession.selectOne("enr.Contract.getContract", contractId);
 	}
 	
 	public void insertContract(Contract contract){
-		sqlSession.insert("Contract.insertContract", contract);
+		sqlSession.insert("enr.Contract.insertContract", contract);
 	}
 	
 	public void updateContract(Contract contract){
-		sqlSession.update("Contract.updateContract", contract);
+		sqlSession.update("enr.Contract.updateContract", contract);
 	}
 	
 	public void deleteContract(int contractId){
-		sqlSession.delete("Contract.deleteContract", contractId);
+		sqlSession.delete("enr.Contract.deleteContract", contractId);
 	}
 }

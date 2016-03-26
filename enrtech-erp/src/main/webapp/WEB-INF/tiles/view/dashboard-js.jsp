@@ -24,7 +24,8 @@
 			  		
 			  		var nmLink = '<a href="contract/main/'+ item.contractId +'">' + item.cnstrctNm + '</a>';
 			  		
-			  		$('#ingTbl > tbody:last').append('<tr><th>' + (index+start_num) + '</th><td>' + nmLink + '</td><td>' + item.ownCmpnyId + '</td><td>' + item.cnstrctCmpnyId + '</td><td>' + item.contractDt + '</td><td> </td><td> </td></tr>');
+			  		$('#ingTbl > tbody:last').append('<tr><th>' + (index+start_num) + '</th><td>' + nmLink + '</td><td>' + item.ownCmpnyId + '</td><td>' 
+			  				+ item.cnstrctCmpnyId + '</td><td>' + item.contractDt + '</td><td> </td><td>' + item.stateNm + '</td></tr>');
 				});
 			
 			});

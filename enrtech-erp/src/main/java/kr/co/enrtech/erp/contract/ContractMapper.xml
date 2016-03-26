@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="Contract">
+<mapper namespace="enr.Contract">
 
 	<resultMap id="ContractMap" type="kr.co.enrtech.erp.contract.Contract">
 		<!-- <id property="id" column="user_id" /> -->
@@ -26,10 +26,11 @@
 		<result property="mngTeam" column="mng_team"/>
 		<result property="salesMnger" column="sales_mnger"/>
 		<result property="cnstrctMnger" column="cnstrct_mnger"/>
+		<result property="state" column="state"/>
 		<result property="regDt" column="reg_dt"/>
-		<result property="regUserId" column="reg_user_id"/>
+		<result property="regUser" column="reg_user"/>
 		<result property="uptDt" column="upt_dt"/>
-		<result property="uptUserId" column="upt_user_id"/>
+		<result property="uptUser" column="upt_user"/>
 	</resultMap>
 	
 	<sql id="getContractListBase" >
@@ -55,10 +56,11 @@
         	,mng_team
         	,sales_mnger
         	,cnstrct_mnger
+        	,state
         	,reg_dt
-        	,reg_user_id
+        	,reg_user
         	,upt_dt
-        	,upt_user_id
+        	,upt_user
         FROM
         	contract
         <where>
@@ -103,10 +105,11 @@
         	,mng_team
         	,sales_mnger
         	,cnstrct_mnger
+        	,state
         	,reg_dt
-        	,reg_user_id
+        	,reg_user
         	,upt_dt
-        	,upt_user_id
+        	,upt_user
         FROM
         	contract
         WHERE
@@ -139,9 +142,9 @@
         	,sales_mnger
         	,cnstrct_mnger
         	,reg_dt
-        	,reg_user_id
+        	,reg_user
         	,upt_dt
-        	,upt_user_id
+        	,upt_user
         ) VALUES (
         	#{contractId}
         	,#{cnstrctNm}
@@ -165,9 +168,9 @@
         	,#{salesMnger}
         	,#{cnstrctMnger}
         	,NOW()
-        	,#{regUserId}
+        	,#{regUser}
         	,NOW()
-        	,#{uptUserId}
+        	,#{uptUser}
         )
     </insert>
     <update id="updateContract" parameterType="kr.co.enrtech.erp.contract.Contract" >
@@ -194,10 +197,9 @@
         	,mng_team = #{mngTeam}
         	,sales_mnger = #{salesMnger}
         	,cnstrct_mnger = #{cnstrctMnger}
-        	,reg_dt = #{regDt}
-        	,reg_user_id = #{regUserId}
-        	,upt_dt = #{uptDt}
-        	,upt_user_id = #{uptUserId}
+        	,state = #{state}
+        	,upt_dt = NOW()
+        	,upt_user = #{uptUser}
         WHERE
         	contract_id = #{contractId}
     </update>

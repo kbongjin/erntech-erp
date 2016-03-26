@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="/WEB-INF/tld/tags.tld" prefix="t" %>
 	<div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">계약 상세</h1>
@@ -9,41 +10,45 @@
 	
 		<div class="panel panel-default" style="width: 900px;">
   			<div class="panel-body">
-	    	<form class="form-horizontal">
+	    	<form class="form-horizontal cform cform1" >
+	    		<input type="hidden" name="contractId" value="" />
+	    		<input type="hidden" name="state" value="" />
 		    	<div class="form-group">
-					<label for="cnstrctNm" class="control-label col-sm-2">공사명 :</label>
-					<div class="col-sm-9">
-						<p class="form-control-static cnstrctNm"></p>
+					<label class="control-label col-sm-2">공사명</label>
+					<div class="col-sm-6">
+						<input type="text" name="cnstrctNm" class="form-control input-sm" data-validation="required" disabled />
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="inputIssueType" class="control-label col-sm-2">계약 유형 :</label>
-					<div class="col-sm-9">
-						<p class="form-control-static"><span class="contractType1"></span>, <span class="contractType2"></span>, <span class="contractType3"></span></p>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2">발주처 :</label>
-					<div class="col-sm-4">
-						<p class="form-control-static ownCmpnyId"></p>
-					</div>
-					<label class="control-label col-sm-2">시공사 :</label>
-					<div class="col-sm-4">
-						<p class="form-control-static cnstrctCmpnyId"></p>
-					</div>
-				</div>
-				<div class="form-group">
-					<label for="cnstrctStartDt" class="control-label col-sm-2">착공예정일 :</label>
+					<label class="control-label col-sm-1">상태</label>
+					
 					<div class="col-sm-2">
-						<p class="form-control-static cnstrctStartDt"></p>
+						<p class="form-control-static stateNm"></p>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">계약 유형</label>
+					<div class="col-sm-3">
+						<t:code group_id="C_TYPE1" name="contractType1" styleClass="form-control" firstOption="::선택하세요::" attr="disabled"/>
+					</div>
+					<div class="col-sm-3">
+						<t:code group_id="C_TYPE2" name="contractType2" styleClass="form-control" firstOption="::선택하세요::" attr="disabled"/>
+					</div>
+					<div class="col-sm-3">
+						<t:code group_id="C_TYPE3" name="contractType3" styleClass="form-control" firstOption="::선택하세요::" attr="disabled"/>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">계약일</label>
+					<div class="col-sm-3">
+						<div class='input-group'>
+		                    <input type='text' id="contractDt2" name="contractDt" class="date-picker form-control input-sm" disabled />
+		                    <label for="contractDt2" class="input-group-addon btn">
+		                        <span class="glyphicon glyphicon-calendar"></span>
+		                    </label>
+		                </div>
 	                </div>
-					<label for="cnstrctEndDt" class="control-label col-sm-2">준공예정일 :</label>
-					<div class="col-sm-2">
-						<p class="form-control-static cnstrctEndDt"></p>
-	                </div>
-	                <label for="maintenance" class="control-label col-sm-2">하자보증기간 :</label>
-					<div class="col-sm-2">
-						<p class="form-control-static maintenance"></p>
+					<label class="control-label col-sm-2">공사범위</label>
+					<div class="col-sm-3">
+						<t:code group_id="C_WAY" name="cnstrctWay" styleClass="form-control" firstOption="::선택하세요::" attr="disabled" />
 					</div>
 				</div>
 				
@@ -63,52 +68,97 @@
 	    <div role="tabpanel" class="tab-pane active" id="ctab1">
 	    	<div class="panel panel-default" style="width: 900px;">
   			<div class="panel-body">
-	    	<form class="form-horizontal">
-		    	
+	    	<form class="form-horizontal cform cform2">
+		    	<div class="form-group">
+					<label class="control-label col-sm-2">발주처</label>
+					<div class="col-sm-6">
+						<input type="text" name="ownCmpnyId" class="form-control input-sm" disabled>
+					</div>
+				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">현장주소 :</label>
+					<label class="control-label col-sm-2">시공사</label>
+					<div class="col-sm-6">
+						<input type="text" name="cnstrctCmpnyId" class="form-control input-sm" disabled>
+					</div>
+				</div>
+				<div class="form-group control-group">
+					<label class="control-label col-sm-2">착공예정일</label>
+					<div class="col-sm-2 controls">
+						<div class='input-group'>
+		                    <input type='text' id="cnstrctStartDt2" name="cnstrctStartDt" class="date-picker form-control input-sm" disabled>
+		                    <label for="cnstrctStartDt2" class="input-group-addon btn">
+		                        <span class="glyphicon glyphicon-calendar"></span>
+		                    </label>
+		                </div>
+	                </div>
+					<label class="control-label col-sm-2">준공예정일</label>
+					<div class="col-sm-2">
+						<div class='input-group'>
+		                    <input type='text' id="cnstrctEndDt2" name="cnstrctEndDt" class="date-picker form-control input-sm" disabled>
+		                    <label for="cnstrctEndDt2" class="input-group-addon btn">
+		                        <span class="glyphicon glyphicon-calendar"></span>
+		                    </label>
+		                </div>
+	                </div>
+	                <label class="control-label col-sm-2">하자보증기간</label>
+					<div class="col-sm-2">
+						<input type="text" name="maintenance" class="form-control input-sm" value="준공후 **개월" disabled />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">현장주소</label>
 					<div class="col-sm-9">
-						<p class="form-control-static">(121-050) 서울시 마포구 마포동 222</p>
+						<input type="text" name="cnstrctAddr1" class="form-control input-sm" disabled />
 					</div>
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2"></label>
 					<div class="col-sm-9">
-						<p class="form-control-static">주소222</p>
+						<input type="text" name="cnstrctAddr2" class="form-control input-sm" disabled />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">현장 연락처 :</label>
+					<label class="control-label col-sm-2">현장 연락처</label>
 					<div class="col-sm-3">
-						<p class="form-control-static">031) 123-1234</p>
+						<input type="text" name="cnstrctPhone" class="form-control input-sm" disabled />
 					</div>
-					<label class="control-label col-sm-3">현장 공무담당자 :</label>
+					<label class="control-label col-sm-3">현장 공무담당자</label>
 					<div class="col-sm-3">
-						<p class="form-control-static">홍공무</p>
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2">현장 공사담당자 :</label>
-					<div class="col-sm-3">
-						<p class="form-control-static">홍현장</p>
-					</div>
-					<label class="control-label col-sm-3">담당부서 :</label>
-					<div class="col-sm-3">
-						<p class="form-control-static">담당부서11</p>
+						<input type="text" name="cnstrctPubMnger" class="form-control input-sm" disabled />
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2">영업 담당자 :</label>
+					<label class="control-label col-sm-2">현장 공사담당자</label>
 					<div class="col-sm-3">
-						<p class="form-control-static">홍영업</p>
+						<input type="text" name="cnstrctRelMnger" class="form-control input-sm" disabled />
 					</div>
-					<label class="control-label col-sm-3">공사담당자 :</label>
+					<label class="control-label col-sm-3">담당부서</label>
 					<div class="col-sm-3">
-						<p class="form-control-static">홍공사</p>
+						<input type="text" name="mngTeam" class="form-control input-sm" disabled />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">영업 담당자</label>
+					<div class="col-sm-3">
+						<input type="text" name="salesMnger" class="form-control input-sm" disabled />
+					</div>
+					<label class="control-label col-sm-3">공사담당자</label>
+					<div class="col-sm-3">
+						<input type="text" name="cnstrctMnger" class="form-control input-sm" disabled />
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-2">
+						
+					</div>
+					<div class="col-sm-9">
+						<button type="button" class="btn btn-primary btn-sm modify">수정</button>
+						<button type="submit" class="btn btn-primary btn-sm save" disabled >저장</button>
+						<button type="button" class="btn btn-default btn-sm cancel" disabled >취소</button>
+						<button type="submit" class="btn btn-primary btn-sm cdel" disabled >삭제</button>
 					</div>
 				</div>
 			</form>
-			<button type="button" class="btn btn-primary btn-sm">수정</button>
 			</div>
 			</div>
 	    </div>

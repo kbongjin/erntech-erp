@@ -10,7 +10,7 @@
 	  <div class="panel-heading">진행중인 계약</div>
 	
 	  <!-- Table -->
-	  <table id="ingTbl" class="table">
+	  <table id="ingTbl" class="table table-striped">
 		<caption>현재 진행중인 계약 목록입니다.</caption>
 		<thead>
 			<tr>

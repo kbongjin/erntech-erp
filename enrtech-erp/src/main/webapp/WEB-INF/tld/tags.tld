@@ -84,7 +84,12 @@
             <name>firstOption</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
-        </attribute>		
+        </attribute>
+        <attribute>
+            <name>attr</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
 	</tag>
     <tag>
         <name>select</name>
