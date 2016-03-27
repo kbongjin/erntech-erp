@@ -12,12 +12,12 @@ import org.apache.ibatis.type.Alias;
  * @author Bong-Jin Kwon
  * @version 1.0
  */
-@Alias("SearchListParam")
 public class SearchListParam {
 	
 	private int page;
-	private int start;
-	private int limit;
+	private int offset;
+	private int limit = 100;
+	private String searchField;//검색 field
 	private String search;//검색어
 	private Map<String, Object> exParams = new HashMap<String, Object>();
 
@@ -30,6 +30,18 @@ public class SearchListParam {
 		// TODO Auto-generated constructor stub
 	}
 
+	public String getSearchField() {
+		return searchField;
+	}
+
+	public void setSearchField(String searchField) {
+		this.searchField = searchField;
+	}
+
+	public void setExParams(Map<String, Object> exParams) {
+		this.exParams = exParams;
+	}
+
 	public int getPage() {
 		return page;
 	}
@@ -38,12 +50,12 @@ public class SearchListParam {
 		this.page = page;
 	}
 
-	public int getStart() {
-		return start;
+	public int getOffset() {
+		return offset;
 	}
 
-	public void setStart(int start) {
-		this.start = start;
+	public void setOffset(int offset) {
+		this.offset = offset;
 	}
 
 	public int getLimit() {

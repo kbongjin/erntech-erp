@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ContractDetail">
+
+	<resultMap id="ContractDetailMap" type="kr.co.enrtech.erp.condetail.ContractDetail">
+		<!-- <id property="id" column="user_id" /> -->
+		<result property="contractId" column="contract_id"/>
+		<result property="detailId" column="detail_id"/>
+		<result property="productCd" column="product_cd"/>
+		<result property="standardCd" column="standard_cd"/>
+		<result property="unit" column="unit"/>
+		<result property="qty" column="qty"/>
+		<result property="unitPrice" column="unit_price"/>
+		<result property="price" column="price"/>
+		<result property="factory" column="factory"/>
+		<result property="excJaQty" column="exc_ja_qty"/>
+		<result property="excJaUprice" column="exc_ja_uprice"/>
+		<result property="excJaPrice" column="exc_ja_price"/>
+		<result property="excSlQty" column="exc_sl_qty"/>
+		<result property="excSlUprice" column="exc_sl_uprice"/>
+		<result property="excSlPrice" column="exc_sl_price"/>
+		<result property="deliveryDt" column="delivery_dt"/>
+	</resultMap>
+	
+	<sql id="getContractDetailListBase" >
+        SELECT
+        	contract_id
+        	,detail_id
+        	,product_cd
+        	,standard_cd
+        	,unit
+        	,qty
+        	,unit_price
+        	,price
+        	,factory
+        	,exc_ja_qty
+        	,exc_ja_uprice
+        	,exc_ja_price
+        	,exc_sl_qty
+        	,exc_sl_uprice
+        	,exc_sl_price
+        	,delivery_dt
+        FROM
+        	contract_detail
+        <where>
+			<if test="search != null">
+			user_name LIKE concat('%',#{search},'%')
+			</if>
+		</where>
+		LIMIT #{start}, #{limit}
+    </sql>
+    
+    <select id="getContractDetailList" parameterType="searchlistparam" resultMap="ContractDetailMap">
+        <include refid="getContractDetailListBase"/>
+    </select>
+    
+    <select id="getContractDetailListTotalCount" parameterType="searchlistparam" resultType="int">
+		SELECT COUNT(*)
+		FROM (
+			<include refid="getContractDetailListBase"/>
+		) AS T
+	</select>
+	
+	<select id="getContractDetail" parameterType="kr.co.enrtech.erp.condetail.ContractDetail" resultMap="ContractDetailMap">
+        SELECT
+        	contract_id
+        	,detail_id
+        	,product_cd
+        	,standard_cd
+        	,unit
+        	,qty
+        	,unit_price
+        	,price
+        	,factory
+        	,exc_ja_qty
+        	,exc_ja_uprice
+        	,exc_ja_price
+        	,exc_sl_qty
+        	,exc_sl_uprice
+        	,exc_sl_price
+        	,delivery_dt
+        FROM
+        	contract_detail
+        WHERE
+        	contract_id = #{contractId}
+        	AND detail_id = #{detailId}
+    </select>
+    
+    <insert id="insertContractDetail" parameterType="kr.co.enrtech.erp.condetail.ContractDetail" >
+        INSERT INTO contract_detail
+        (
+        	contract_id
+        	,detail_id
+        	,product_cd
+        	,standard_cd
+        	,unit
+        	,qty
+        	,unit_price
+        	,price
+        	,factory
+        	,exc_ja_qty
+        	,exc_ja_uprice
+        	,exc_ja_price
+        	,exc_sl_qty
+        	,exc_sl_uprice
+        	,exc_sl_price
+        	,delivery_dt
+        ) VALUES (
+        	#{contractId}
+        	,#{detailId}
+        	,#{productCd}
+        	,#{standardCd}
+        	,#{unit}
+        	,#{qty}
+        	,#{unitPrice}
+        	,#{price}
+        	,#{factory}
+        	,#{excJaQty}
+        	,#{excJaUprice}
+        	,#{excJaPrice}
+        	,#{excSlQty}
+        	,#{excSlUprice}
+        	,#{excSlPrice}
+        	,#{deliveryDt}
+        )
+    </insert>
+    <update id="updateContractDetail" parameterType="kr.co.enrtech.erp.condetail.ContractDetail" >
+        UPDATE contract_detail
+        SET
+        	contract_id = #{contractId}
+        	,detail_id = #{detailId}
+        	,product_cd = #{productCd}
+        	,standard_cd = #{standardCd}
+        	,unit = #{unit}
+        	,qty = #{qty}
+        	,unit_price = #{unitPrice}
+        	,price = #{price}
+        	,factory = #{factory}
+        	,exc_ja_qty = #{excJaQty}
+        	,exc_ja_uprice = #{excJaUprice}
+        	,exc_ja_price = #{excJaPrice}
+        	,exc_sl_qty = #{excSlQty}
+        	,exc_sl_uprice = #{excSlUprice}
+        	,exc_sl_price = #{excSlPrice}
+        	,delivery_dt = #{deliveryDt}
+        WHERE
+        	contract_id = #{contractId}
+        	AND detail_id = #{detailId}
+    </update>
+	<delete id="deleteContractDetail" parameterType="kr.co.enrtech.erp.condetail.ContractDetail" >
+        DELETE FROM contract_detail
+        WHERE
+        	contract_id = #{contractId}
+        	AND detail_id = #{detailId}
+    </delete>
+</mapper>

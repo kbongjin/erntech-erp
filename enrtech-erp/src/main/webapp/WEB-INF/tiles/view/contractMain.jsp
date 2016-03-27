@@ -164,37 +164,40 @@
 	    </div>
 	    <div role="tabpanel" class="tab-pane" id="ctab2">
 	    	<!-- Table -->
-			  <table id="pendingTbl" class="table">
-				<caption>결재 대기중인 계약 목록입니다.</caption>
+			  <table class="table">
+				<caption><button type="button" class="btn btn-primary btn-sm cdetil-reg" data-toggle="modal" data-target="#regCondetail">내역등록</button></caption>
 				<thead>
 					<tr>
-						<th width="10%">#</th>
-						<th width="20%">공사명</th>
-						<th width="15%">발주처</th>
-						<th width="15%">시공사</th>
-						<th width="10%">계약일</th>
-						<th width="15%">계약금액(만원)</th>
-						<th width="15%">계약상태</th>
+						<th width="5%">#</th>
+						<th width="20%">품명</th>
+						<th width="20%">규격</th>
+						<th width="5%">단위</th>
+						<th width="10%">계약수량</th>
+						<th width="10%">계약단가</th>
+						<th width="10%">계약금액</th>
+						<th width="10%">생산공장</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
 						<th scope="row">1</th>
-						<td>공사명11</td>
-						<td>발주처11</td>
-						<td>시공사</td>
-						<td>계약일</td>
-						<td>1,000</td>
-						<td>결재대기</td>
+						<td>교량용 교좌장치(양방향고정)</td>
+						<td>25ton(디스크받침)</td>
+						<td>조</td>
+						<td>8</td>
+						<td>410,000</td>
+						<td>3,280,000</td>
+						<td>**공장</td>
 					</tr>
 					<tr>
 						<th scope="row">2</th>
-						<td>공사명22</td>
-						<td>발주처22</td>
-						<td>시공사</td>
-						<td>계약일</td>
-						<td>2,000</td>
-						<td>결재대기</td>
+						<td>교량용 교좌장치(양방향고정)</td>
+						<td>25ton(디스크받침)</td>
+						<td>조</td>
+						<td>8</td>
+						<td>410,000</td>
+						<td>3,280,000</td>
+						<td>**공장</td>
 					</tr>
 				</tbody>
 			  </table>
@@ -204,3 +207,100 @@
 	  </div>
 	</div>
 	
+	<!-- Modal -->
+	<div class="modal fade" id="regCondetail" tabindex="-1" role="dialog" aria-labelledby="cdetailLabel">
+		<div class="cnstrct modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="cdetailLabel">계약 내역 등록</h4>
+				</div>
+				<div class="modal-body">
+				
+					<form class="form-horizontal">
+
+						<div class="form-group">
+							<label class="control-label col-sm-2">품명코드</label>
+							<div class="col-sm-4">
+								<input type="text" id="productCd" name="productCd" class="form-control input-sm" required />
+							</div>
+							<label class="control-label col-sm-2">규격코드</label>
+							<div class="col-sm-4">
+								<input type="text" id="standardCd" name="standardCd" class="form-control input-sm" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">단위</label>
+							<div class="col-sm-4">
+								<input type="text" id="unit" name="unit" class="form-control input-sm" required />
+							</div>
+							<label class="control-label col-sm-2">수량</label>
+							<div class="col-sm-4">
+								<input type="text" id="qty" name="qty" class="form-control input-sm" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">단가</label>
+							<div class="col-sm-4">
+								<input type="text" id="unitPrice" name="unitPrice" class="form-control input-sm" required />
+							</div>
+							<label class="control-label col-sm-2">계약금액</label>
+							<div class="col-sm-4">
+								<input type="text" id="price" name="price" class="form-control input-sm" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">생산공장</label>
+							<div class="col-sm-4">
+								<input type="text" id="factory" name="factory" class="form-control input-sm" required />
+							</div>
+							<label class="control-label col-sm-2">실행수량(자재)</label>
+							<div class="col-sm-4">
+								<input type="text" id="excJaQty" name="excJaQty" class="form-control input-sm" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">실행단가(자재)</label>
+							<div class="col-sm-4">
+								<input type="text" id="excJaUprice" name="excJaUprice" class="form-control input-sm" required />
+							</div>
+							<label class="control-label col-sm-2">실행금액(자재)</label>
+							<div class="col-sm-4">
+								<input type="text" id="excJaPrice" name="excJaPrice" class="form-control input-sm" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">실행수량(설치)</label>
+							<div class="col-sm-4">
+								<input type="text" id="excSlQty" name="excSlQty" class="form-control input-sm" required />
+							</div>
+							<label class="control-label col-sm-2">실행단가(설치)</label>
+							<div class="col-sm-4">
+								<input type="text" id="excSlUprice" name="excSlUprice" class="form-control input-sm" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">실행금액(설치)</label>
+							<div class="col-sm-4">
+								<input type="text" id="excSlPrice" name="excSlPrice" class="form-control input-sm" required />
+							</div>
+							<label class="control-label col-sm-2">납품일자</label>
+							<div class="col-sm-4">
+								<input type="text" id="deliveryDt" name="deliveryDt" class="form-control input-sm" required />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary">등록하기</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</form>
+	
+				</div>
+				
+			</div>
+		</div>
+	</div>

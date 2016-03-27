@@ -38,6 +38,10 @@ button.modify {
 	margin-right: 15px;
 }
 
+.fixed-table-container {
+    border: none;
+}
+
 /*
 .spinner {
   display: inline-block;

@@ -15,6 +15,7 @@ public class CommonCode {
 	private String codeNm;//코드명
 	private short prtoSeq;//출력순서
 	private String desc;//코드설명
+	private String mngYn;//관리여부
 
 	/**
 	 * <pre>
@@ -93,6 +94,14 @@ public class CommonCode {
 	 */
 	public void setDesc(String desc) {
 		this.desc = desc;
+	}
+
+	public String getMngYn() {
+		return mngYn;
+	}
+
+	public void setMngYn(String mngYn) {
+		this.mngYn = mngYn;
 	}
 
 }

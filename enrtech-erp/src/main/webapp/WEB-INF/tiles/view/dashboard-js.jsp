@@ -6,13 +6,19 @@
 	    	$('ul.navbar-nav > li.active').removeClass("active");
 	    	$('#dashNav').addClass("active");
 	    	
-	    	var start_num = 1;
 	    	
+	    	$('#ingTbl').bootstrapTable({
+	    	    url: 'contract/list',
+	    	    ajaxOptions: {method: 'POST'},
+	    	});
+	    	
+	    	
+	    	/* 
 	    	showLoading('#ingTbl',{ message: '<img src="${res}/css/images/busy.gif" /> loading...' }); 
 	    	var request = $.ajax({
-	  			  method : "GET",
+	  			  method : "POST",
 					  url: "contract/list",
-					  data: {start: (start_num-1), limit:20},
+					  data: {offset: 0, limit:20},
 					  dataType: "json"
 	  		});
 	  		
@@ -29,6 +35,7 @@
 				});
 			
 			});
+	  		 */
 	    	
 	    });
     </script>

@@ -28,6 +28,7 @@
     <!-- Custom CSS -->
     <link href="${res}/dist/css/sb-admin-2.css" rel="stylesheet">
     <link href="${res}/css/jquery-ui.min.css" rel="stylesheet">
+    <link href="${res}/css/bootstrap-table.css" rel="stylesheet" >
     <link href="${res}/css/default.css" rel="stylesheet">
     <link href="${res}/css/sticky-footer.css" rel="stylesheet">
     <link href="${res}/css/jquery.growl.css" rel="stylesheet">
@@ -59,7 +60,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="${pageContext.request.contextPath}/dashboard">SB Admin v2.0</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/dashboard">ERP :: ENRTech</a>
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
@@ -67,7 +68,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-user fa-fw"></i> 홍길동 <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
@@ -75,7 +76,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="${pageContext.request.contextPath}/auth/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a href="#" class="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -132,6 +133,8 @@
     <script src="${res}/js/jquery.loadJSON.js"></script>
     <script src="${res}/js/json2.js"></script>
     <script src="${res}/js/jquery.confirm.min.js"></script>
+    <script src="${res}/js/bootstrap-table.min.js"></script>
+	<script src="${res}/js/bootstrap-table-ko-KR.js"></script>
     
     <!-- Our JavaScript -->
 	<tiles:insertAttribute name="common-js" />

@@ -65,17 +65,17 @@
         	contract
         <where>
 			<if test="search != null">
-			user_name LIKE concat('%',#{search},'%')
+			${searchField} LIKE concat('%',#{search},'%')
 			</if>
 		</where>
-		LIMIT #{start}, #{limit}
+		LIMIT #{offset}, #{limit}
     </sql>
     
-    <select id="getContractList" parameterType="SearchListParam" resultMap="ContractMap">
+    <select id="getContractList" parameterType="searchlistparam" resultMap="ContractMap">
         <include refid="getContractListBase"/>
     </select>
     
-    <select id="getContractListTotalCount" parameterType="SearchListParam" resultType="int">
+    <select id="getContractListTotalCount" parameterType="searchlistparam" resultType="int">
 		SELECT COUNT(*)
 		FROM (
 			<include refid="getContractListBase"/>

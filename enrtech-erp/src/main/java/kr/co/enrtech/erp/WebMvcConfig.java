@@ -1,13 +1,10 @@
 package kr.co.enrtech.erp;
 
+import kr.co.enrtech.erp.common.converter.StringToNumberConverterFactory;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.format.datetime.DateFormatter;
-import org.springframework.format.datetime.DateFormatterRegistrar;
-import org.springframework.format.number.NumberFormatAnnotationFormatterFactory;
-import org.springframework.format.support.DefaultFormattingConversionService;
-import org.springframework.format.support.FormattingConversionService;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 /**
@@ -23,7 +20,9 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 		
 		// 'yyyy-MM-dd' format string to Date converting.
 		registry.addFormatter(new DateFormatter("yyyy-MM-dd"));
+		
+		registry.removeConvertible(String.class, Number.class);
+		registry.addConverterFactory(new StringToNumberConverterFactory());
 	}
-
 
 }

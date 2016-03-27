@@ -10,6 +10,7 @@
 		<result property="codeNm" column="code_nm"/>
 		<result property="prtoSeq" column="prto_seq"/>
 		<result property="desc" column="cd_desc"/>
+		<result property="mngYn" column="mng_yn"/>
 	</resultMap>
 	
 	<sql id="getCommonCodeListBase" >

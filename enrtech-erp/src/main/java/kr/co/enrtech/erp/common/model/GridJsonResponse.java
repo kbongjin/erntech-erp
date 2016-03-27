@@ -23,7 +23,7 @@ public class GridJsonResponse {
 	private String msg;
 	
 	private int total;
-	private List<?> list;
+	private List<?> rows;
 
 	/**
 	 * <pre>
@@ -42,12 +42,12 @@ public class GridJsonResponse {
 		this.total = total;
 	}
 
-	public List<?> getList() {
-		return list;
+	public List<?> getRows() {
+		return rows;
 	}
 
-	public void setList(List<?> list) {
-		this.list = list;
+	public void setRows(List<?> rows) {
+		this.rows = rows;
 	}
 
 	public boolean isSuccess() {

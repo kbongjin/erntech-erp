@@ -56,13 +56,13 @@ public class ContractController {
         return "page.contractList";
     }
 	
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	@RequestMapping(value = "/list", method = RequestMethod.POST)
 	@ResponseBody
 	public GridJsonResponse list(SearchListParam searchParam){
-	
+		
 		GridJsonResponse jsonRes = new GridJsonResponse();
 		jsonRes.setTotal(service.getContractListTotalCount(searchParam));
-		jsonRes.setList(service.getContractList(searchParam));
+		jsonRes.setRows(service.getContractList(searchParam));
 		
 		return jsonRes;
 	}

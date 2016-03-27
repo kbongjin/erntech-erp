@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
     <script>
+    	var contextPath = '${pageContext.request.contextPath}';
     	var blockEls = [];
     	function showLoading(selector, opts) {
     		blockEls.push(selector);
@@ -28,7 +29,6 @@
 	    		
 	    	});
 	    	
-			
 	    	
 	    	$('#regContract form').on('submit', function (e) {
 	    		
@@ -38,7 +38,7 @@
 					
 					var request = $.ajax({
 		    			  method : "POST",
-						  url: "${pageContext.request.contextPath}/contract/create",
+						  url: contextPath + "/contract/create",
 						  data: $( "#regContract form" ).serialize(),
 						  dataType: "json"
 		    	   });
@@ -48,7 +48,7 @@
 		    			//alert( "Request failed: " + textStatus );
 		    			
 			    		setTimeout(function() {
-			    			window.location.href = "${pageContext.request.contextPath}/contract/main/" + responseJson.data;
+			    			window.location.href = contextPath + "/contract/main/" + responseJson.data;
 			    	    }, 1000);
 			    		$("#regContract").modal("hide");
 		    			
@@ -97,7 +97,24 @@
 			    cancelButtonClass: "btn-default btn-sm",
 			    dialogClass: "modal-dialog modal-sm"
 			}
+			
+			$('a.logout').click(function(e){
+				var request = $.ajax({
+					  url: contextPath + "/auth/logout",
+					  dataType: "json"
+	    	   	});
+	    		
+	    		request.done(function( responseJson ) {
+	    			window.location.href = contextPath ;
+  				});
+			});
 
 	    });
+	    function indexFormatter(value, row, index) {
+	        return index + 1;
+	    }
+	    function nameLink(value, row, index){
+    		return '<a href="' + contextPath + '/contract/main/'+ row.contractId +'">' + value + '</a>';
+    	}
     </script>
       

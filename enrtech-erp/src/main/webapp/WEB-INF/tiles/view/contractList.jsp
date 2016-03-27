@@ -10,61 +10,42 @@
 	  <div class="col-lg-6">
 	    <div class="input-group">
 	      <div class="input-group-btn">
-	        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">계약명 <span class="caret"></span></button>
-	        <ul class="dropdown-menu">
-	          <li><a href="#">계약명</a></li>
-	          <li><a href="#">Another action</a></li>
-	          <li><a href="#">Something else here</a></li>
-	          <li role="separator" class="divider"></li>
-	          <li><a href="#">Separated link</a></li>
+	        <button type="button" class="btn btn-default dropdown-toggle ddown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	        	<span data-bind="label">계약명</span>&nbsp;<span class="caret"></span>
+	        </button>
+	        <ul class="dropdown-menu search">
+	          <li><a href="#" data-field="cnstrct_nm">계약명</a></li>
+	          <li><a href="#" data-field="sales_mnger">영업담당자</a></li>
+	          <li><a href="#" data-field="own_cmpny_id">발주처</a></li>
 	        </ul>
 	      </div><!-- /btn-group -->
-	      <input type="text" class="form-control" aria-label="...">
+	      <input type="text" name="search" class="form-control" aria-label="...">
 	    </div><!-- /input-group -->
 	  </div><!-- /.col-lg-6 -->
-	  <button type="button" class="btn btn-default">검색</button>
+	  <button type="button" class="btn btn-default search">검색</button>
+	  <button class="btn btn-default refresh" type="button" title="새로 고침"><i class="glyphicon glyphicon-refresh icon-refresh"></i></button>
 	</div><!-- /.row -->
 	<p></p>
-	<div class="panel panel-primary">
-	  <!-- Default panel contents -->
-	  <div class="panel-heading">계약 목록</div>
-	
-	  <!-- Table -->
-	  <table id="ingTbl" class="table">
-		<caption>계약 목록입니다.</caption>
+
+	<!-- Table -->
+	<table id="listTbl" class="table table-striped"
+		data-content-type="application/x-www-form-urlencoded; charset=UTF-8"
+		data-pagination="true" data-side-pagination="server">
+		<!-- <caption>현재 진행중인 계약 목록입니다.</caption> -->
 		<thead>
 			<tr>
-				<th width="10%">#</th>
-				<th width="20%">공사명</th>
-				<th width="15%">발주처</th>
-				<th width="15%">시공사</th>
-				<th width="10%">계약일</th>
-				<th width="15%">계약금액(만원)</th>
-				<th width="15%">계약상태</th>
+				<th data-width="10%" data-formatter="indexFormatter">#</th>
+				<th data-field="cnstrctNm" data-width="20%" data-formatter="nameLink">공사명</th>
+				<th data-field="ownCmpnyId" data-width="15%">발주처</th>
+				<th data-field="cnstrctCmpnyId" data-width="15%">시공사</th>
+				<th data-field="contractDt" data-width="10%">계약일</th>
+				<th data-field="stateNm" data-width="15%">계약금액(만원)</th>
+				<th data-field="stateNm" data-width="15%">계약상태</th>
 			</tr>
 		</thead>
-		<tbody>
-			<tr>
-				<th scope="row">1</th>
-				<td>공사명11</td>
-				<td>발주처11</td>
-				<td>시공사</td>
-				<td>계약일</td>
-				<td>1,000</td>
-				<td>계약등록</td>
-			</tr>
-			<tr>
-				<th scope="row">2</th>
-				<td>공사명22</td>
-				<td>발주처22</td>
-				<td>시공사</td>
-				<td>계약일</td>
-				<td>3,000</td>
-				<td>계약등록</td>
-			</tr>
-		</tbody>
-	  </table>
-	</div>
+	
+	</table>
+	<!-- 
 	<nav>
 	  <ul class="pagination">
 	    <li>
@@ -83,5 +64,5 @@
 	      </a>
 	    </li>
 	  </ul>
-	</nav>
+	</nav> -->
 	

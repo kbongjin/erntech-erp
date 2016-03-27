@@ -10,22 +10,24 @@
 	  <div class="panel-heading">진행중인 계약</div>
 	
 	  <!-- Table -->
-	  <table id="ingTbl" class="table table-striped">
-		<caption>현재 진행중인 계약 목록입니다.</caption>
+	  <table id="ingTbl" class="table table-striped" 
+       	data-side-pagination="server" >
+		<!-- <caption>현재 진행중인 계약 목록입니다.</caption> -->
 		<thead>
 			<tr>
-				<th width="10%">#</th>
-				<th width="20%">공사명</th>
-				<th width="15%">발주처</th>
-				<th width="15%">시공사</th>
-				<th width="10%">계약일</th>
-				<th width="15%">계약금액(만원)</th>
-				<th width="15%">계약상태</th>
+				<th data-width="10%" data-formatter="indexFormatter">#</th>
+				<th data-field="cnstrctNm" data-width="20%" data-formatter="nameLink">공사명</th>
+				<th data-field="ownCmpnyId" data-width="15%">발주처</th>
+				<th data-field="cnstrctCmpnyId" data-width="15%">시공사</th>
+				<th data-field="contractDt" data-width="10%">계약일</th>
+				<th data-field="stateNm" data-width="15%">계약금액(만원)</th>
+				<th data-field="stateNm" data-width="15%">계약상태</th>
 			</tr>
 		</thead>
 		<tbody>
 			
 		</tbody>
+		
 	  </table>
 	</div>
 	
