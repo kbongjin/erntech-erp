@@ -37,6 +37,8 @@ public class CommonCodeHandler implements InitializingBean {
 	
 	private static final String Y = "Y";
 	
+	private String statement = "enr.CommonCode.getCommonCodeAllList";
+	
 	
 	public CommonCodeHandler() {
 	}
@@ -71,7 +73,7 @@ public class CommonCodeHandler implements InitializingBean {
 	    if(codes == null){
 	    	//캐시에 없으면 db query.
 	    	try{
-	    		codes = (ArrayList)dao.selectList("enr.CommonCode.getCommonCodeList", cd_grp);
+	    		codes = (ArrayList)dao.selectList(statement, cd_grp);
 	    		//StringUtil.changeModelListCharset(codes, new String[]{"cdnm"});
 	    		allCodes.put(cd_grp, codes);
 	    	} catch (Exception e) {
@@ -172,7 +174,7 @@ public class CommonCodeHandler implements InitializingBean {
 		List list = new ArrayList();
 		
 		try {
-			list = dao.selectList("enr.CommonCode.getCommonCodeList");
+			list = dao.selectList(statement);
 			//StringUtil.changeModelListCharset(list, new String[]{"cdnm"});
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

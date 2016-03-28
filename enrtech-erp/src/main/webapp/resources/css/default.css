@@ -42,6 +42,17 @@ button.modify {
     border: none;
 }
 
+#content {
+	width: 80%;
+	height: 500px;
+}
+
+.ui-layout-container, .ui-layout-pane {
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
 /*
 .spinner {
   display: inline-block;
