@@ -42,11 +42,11 @@ public class CommonCodeController {
 	
 	@RequestMapping(value="/list", method = RequestMethod.GET)
 	@ResponseBody
-	public GridJsonResponse list(SearchListParam gridParam){
+	public GridJsonResponse list(CommonCode commonCode){
 	
 		GridJsonResponse jsonRes = new GridJsonResponse();
-		jsonRes.setTotal(service.getCommonCodeListTotalCount(gridParam));
-		jsonRes.setRows(service.getCommonCodeList(gridParam));
+		jsonRes.setTotal(service.getCommonCodeListTotalCount(commonCode));
+		jsonRes.setRows(service.getCommonCodeList(commonCode));
 		
 		return jsonRes;
 	}

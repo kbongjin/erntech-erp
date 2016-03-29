@@ -29,11 +29,11 @@ public class CommonCodeService {
 		repository.insertCommonCode(commonCode);
 	}
 	
-	public List<CommonCode> getCommonCodeList(SearchListParam gridParam){
+	public List<CommonCode> getCommonCodeList(CommonCode gridParam){
 		return repository.getCommonCodeList(gridParam);
 	}
 	
-	public int getCommonCodeListTotalCount(SearchListParam gridParam){
+	public int getCommonCodeListTotalCount(CommonCode gridParam){
 		
 		return repository.getCommonCodeListTotalCount(gridParam);
 	}

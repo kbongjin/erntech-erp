@@ -6,10 +6,10 @@
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="계약명">
                                 <span class="input-group-btn">
-                                <button class="btn btn-default" type="button">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+	                                <button class="btn btn-default" type="button">
+	                                    <i class="fa fa-search"></i>
+	                                </button>
+	                            </span>
                             </div>
                             <!-- /input-group -->
                         </li>
@@ -21,6 +21,9 @@
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-table fa-fw"></i>발주처/시공사</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>사용자관리</a>
                         </li>
                         
                     </ul>

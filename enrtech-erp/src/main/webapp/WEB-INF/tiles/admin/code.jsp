@@ -12,35 +12,34 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                        	<div class="row" style="margin-bottom: 10px;">
+								<div class="col-md-8">
+									<div class="input-group custom-search-form">
+		                                <input type="text" class="form-control" placeholder="그룹명">
+		                                <span class="input-group-btn">
+			                                <button class="btn btn-default" type="button">
+			                                    <i class="fa fa-search"></i>
+			                                </button>
+			                            </span>
+		                            </div>
+								</div>
+								<div class="col-md-4">
+									<button type="button" class="btn btn-default btn-sm">등록하기</button>
+								</div>
+							</div>
+                        	
                             <div class="table-responsive">
-                                <table class="table table-striped">
+                                <table id="grpTbl" class="table table-striped" data-side-pagination="server" >
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>그룹코드</th>
-                                            <th>그룹명</th>
-                                            <th>Description</th>
+                                            <th data-formatter="indexFormatter">#</th>
+                                            <th data-field="gropId" >그룹코드</th>
+                                            <th data-field="codeNm" data-formatter="codeNameLink">코드 그룹명</th>
+                                            <th data-field="desc" >Description</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -58,35 +57,35 @@
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
+                        	<form id="cdForm" class="form-horizontal">
+                        		<input type="hidden" id="gropId" name="gropId" value="" />
+								<div class="form-group">
+									<div class="col-md-3">
+										<input type="text" name="code" class="form-control input-sm" placeholder="코드" required />
+									</div>
+									<div class="col-md-3">
+										<input type="text" name="codeNm" class="form-control input-sm" placeholder="코드명" required />
+									</div>
+									<div class="col-md-3">
+										<input type="text" name="desc" class="form-control input-sm" placeholder="Description" />
+									</div>
+									<div class="col-md-3">
+										<button type="submit" class="btn btn-default btn-sm">등록하기</button>
+									</div>
+								</div>
+							</form>
                             <div class="table-responsive">
-                                <table class="table table-striped">
+                                <table id="codeTbl" class="table table-striped" data-side-pagination="server">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
-                                            <th>코드</th>
-                                            <th>코드명</th>
-                                            <th>Description</th>
+                                            <th data-field="code">코드</th>
+                                            <th data-field="codeNm">코드명</th>
+                                            <th data-field="desc">Description</th>
+                                            <th data-field="code" data-formatter="removeFormatter" width="10%">삭제</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>@mdo</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Jacob</td>
-                                            <td>Thornton</td>
-                                            <td>@fat</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Larry</td>
-                                            <td>the Bird</td>
-                                            <td>@twitter</td>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                             </div>

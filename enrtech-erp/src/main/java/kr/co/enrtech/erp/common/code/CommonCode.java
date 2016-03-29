@@ -16,6 +16,9 @@ public class CommonCode {
 	private short prtoSeq;//출력순서
 	private String desc;//코드설명
 	private String mngYn;//관리여부
+	
+	private int offset;
+	private int limit = 10000;
 
 	/**
 	 * <pre>
@@ -24,6 +27,22 @@ public class CommonCode {
 	 */
 	public CommonCode() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public int getOffset() {
+		return offset;
+	}
+
+	public void setOffset(int offset) {
+		this.offset = offset;
+	}
+
+	public int getLimit() {
+		return limit;
+	}
+
+	public void setLimit(int limit) {
+		this.limit = limit;
 	}
 
 	/**

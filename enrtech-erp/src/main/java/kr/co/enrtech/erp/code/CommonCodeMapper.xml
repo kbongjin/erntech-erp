@@ -9,7 +9,7 @@
 		<result property="code" column="code"/>
 		<result property="codeNm" column="code_nm"/>
 		<result property="prtoSeq" column="prto_seq"/>
-		<result property="cdDesc" column="cd_desc"/>
+		<result property="desc" column="cd_desc"/>
 		<result property="mngYn" column="mng_yn"/>
 	</resultMap>
 	
@@ -24,24 +24,24 @@
         FROM
         	common_code
         <where>
-			<if test="exParams.groupId != null">
-			group_id = #{exParams.groupId}
+			<if test="gropId != null">
+			grop_id = #{gropId} and code != 'GRP'
 			</if>
-			<if test="exParams.code != null">
-			AND code = #{exParams.code}
+			<if test="code != null">
+			AND code = #{code}
 			</if>
-			<if test="exParams.codeNm != null">
-			AND code_nm LIKE concat('%',#{exParams.codeNm},'%')
+			<if test="codeNm != null">
+			AND code_nm LIKE concat('%',#{codeNm},'%')
 			</if>
 		</where>
 		LIMIT #{offset}, #{limit}
     </sql>
     
-    <select id="getCommonCodeList" parameterType="searchlistparam" resultMap="CommonCodeMap">
+    <select id="getCommonCodeList" parameterType="kr.co.enrtech.erp.common.code.CommonCode" resultMap="CommonCodeMap">
         <include refid="getCommonCodeListBase"/>
     </select>
     
-    <select id="getCommonCodeListTotalCount" parameterType="searchlistparam" resultType="int">
+    <select id="getCommonCodeListTotalCount" parameterType="kr.co.enrtech.erp.common.code.CommonCode" resultType="int">
 		SELECT COUNT(*)
 		FROM (
 			<include refid="getCommonCodeListBase"/>

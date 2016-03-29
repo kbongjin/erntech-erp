@@ -26,28 +26,28 @@ public class CommonCodeRepository extends AbstractBaseDao {
 	public CommonCodeRepository() {
 	}
 
-	public List<CommonCode> getCommonCodeList(SearchListParam gridParam){
-		return sqlSession.selectList("CommonCode.getCommonCodeList", gridParam);
+	public List<CommonCode> getCommonCodeList(CommonCode gridParam){
+		return sqlSession.selectList("enr.CommonCode.getCommonCodeList", gridParam);
 	}
 	
-	public int getCommonCodeListTotalCount(SearchListParam gridParam){
+	public int getCommonCodeListTotalCount(CommonCode gridParam){
 		
-		return sqlSession.selectOne("CommonCode.getCommonCodeListTotalCount", gridParam);
+		return sqlSession.selectOne("enr.CommonCode.getCommonCodeListTotalCount", gridParam);
 	}
 	
 	public CommonCode getCommonCode(CommonCode commonCode){
-		return sqlSession.selectOne("CommonCode.getCommonCode", commonCode);
+		return sqlSession.selectOne("enr.CommonCode.getCommonCode", commonCode);
 	}
 	
 	public void insertCommonCode(CommonCode commonCode){
-		sqlSession.insert("CommonCode.insertCommonCode", commonCode);
+		sqlSession.insert("enr.CommonCode.insertCommonCode", commonCode);
 	}
 	
 	public void updateCommonCode(CommonCode commonCode){
-		sqlSession.update("CommonCode.updateCommonCode", commonCode);
+		sqlSession.update("enr.CommonCode.updateCommonCode", commonCode);
 	}
 	
 	public void deleteCommonCode(CommonCode commonCode){
-		sqlSession.delete("CommonCode.deleteCommonCode", commonCode);
+		sqlSession.delete("enr.CommonCode.deleteCommonCode", commonCode);
 	}
 }
