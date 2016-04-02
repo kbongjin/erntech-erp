@@ -10,6 +10,9 @@
 	    	$('#ingTbl').bootstrapTable({
 	    	    url: 'contract/list',
 	    	    ajaxOptions: {method: 'POST'},
+	    	    onLoadSuccess: function(data) {
+	    	    	$('#ingTbl tr > td:nth-child(2) > a').ellipsis();
+	    	    }
 	    	});
 	    	
 	    	

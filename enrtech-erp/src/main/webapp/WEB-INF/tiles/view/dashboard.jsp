@@ -7,7 +7,9 @@
     
 	<div class="panel panel-primary">
 	  <!-- Default panel contents -->
-	  <div class="panel-heading">진행중인 계약</div>
+	  <div class="panel-heading">
+	  	<i class="fa fa-hourglass-half fa-fw"></i> 진행중인 계약
+	  </div>
 	
 	  <!-- Table -->
 	  <table id="ingTbl" class="table table-striped" 
@@ -33,7 +35,7 @@
 	
 	<div class="panel panel-danger">
 	  <!-- Default panel contents -->
-	  <div class="panel-heading">결재 대기 계약</div>
+	  <div class="panel-heading"><i class="fa fa-legal fa-fw"></i> 결재 대기 계약</div>
 	
 	  <!-- Table -->
 	  <table id="pendingTbl" class="table">

@@ -64,7 +64,11 @@
             </div>
             <!-- /.navbar-header -->
             <ul class="nav navbar-top-links navbar-right">
-            	<li id="dashNav"><button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#regContract">계약등록</button></li>
+            	<li id="dashNav">
+            		<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#regContract">
+            			<i class="fa fa-edit fa-fw"></i> 계약등록
+            		</button>
+            	</li>
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -135,6 +139,7 @@
     <script src="${res}/js/jquery.confirm.min.js"></script>
     <script src="${res}/js/bootstrap-table.min.js"></script>
 	<script src="${res}/js/bootstrap-table-ko-KR.js"></script>
+	<script src="${res}/js/jquery.ellipsis.min.js"></script>
     
     <!-- Our JavaScript -->
 	<tiles:insertAttribute name="common-js" />
