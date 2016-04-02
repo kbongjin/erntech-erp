@@ -3,7 +3,7 @@
 	<!-- Modal -->
 	<div class="modal fade" id="regContract" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="cnstrct modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content modal-lg">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
@@ -13,7 +13,7 @@
 				<div class="modal-body">
 				
 					<!-- form -->
-					<form class="form-horizontal" >
+					<form class="form-horizontal narrow" >
 						<div class="form-group">
 							<label for="cnstrctNm" class="control-label col-sm-2">공사명</label>
 							<div class="col-sm-9">

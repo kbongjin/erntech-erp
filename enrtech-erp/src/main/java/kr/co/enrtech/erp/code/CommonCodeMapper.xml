@@ -95,7 +95,7 @@
         	,#{code}
         	,#{codeNm}
         	,#{prtoSeq}
-        	,#{cdDesc}
+        	,#{desc}
         	,#{mngYn}
         )
     </insert>
@@ -106,7 +106,7 @@
         	,code = #{code}
         	,code_nm = #{codeNm}
         	,prto_seq = #{prtoSeq}
-        	,cd_desc = #{cdDesc}
+        	,cd_desc = #{desc}
         	,mng_yn = #{mngYn}
         WHERE
         	code = #{code}
@@ -114,8 +114,13 @@
     </update>
 	<delete id="deleteCommonCode" parameterType="kr.co.enrtech.erp.common.code.CommonCode" >
         DELETE FROM common_code
-        WHERE
-        	code = #{code}
-        	AND grop_id = #{gropId}
+        <where>
+			<if test="gropId != null">
+			grop_id = #{gropId}
+			</if>
+			<if test="code != null">
+			AND code = #{code}
+			</if>
+		</where>
     </delete>
 </mapper>

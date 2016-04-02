@@ -17,15 +17,14 @@
     	
 	    $( document ).ready(function() {
 	    	
-	    	$('#regContract').on('hidden.bs.modal', function (e) {
+	    	$('div.modal').on('hidden.bs.modal', function (e) {
 	    		// 등록창 닫을때 데이타 reset.
-	    		$( "#regContract form" )[0].reset();
+	    		$(this).find( "form" )[0].reset();
 	    		
 	    	});
 	    	
-	    	$('#regContract').on('shown.bs.modal', function (e) {
-	    		
-	    		$("#cnstrctNm").focus();
+	    	$('div.modal').on('shown.bs.modal', function (e) {
+	    		$(this).find("input[type='text']:first").focus();
 	    		
 	    	});
 	    	
@@ -84,7 +83,7 @@
 			
 			$( document ).ajaxError(function( event, jqxhr, settings, thrownError ) {
 			    //alert( "Error : " + thrownError + " of " + settings.url );
-				$.growl.error({ message: "Error : " + thrownError + " of " + settings.url });
+				$.growl.error({ message: "Error : " + thrownError + " of " + settings.url, duration: 15000 });
 			});
 						
 			$.confirm.options = {

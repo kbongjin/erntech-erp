@@ -24,7 +24,7 @@
 		                            </div>
 								</div>
 								<div class="col-md-4">
-									<button type="button" class="btn btn-default btn-sm">등록하기</button>
+									<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#regCodeGRP">등록하기</button>
 								</div>
 							</div>
                         	
@@ -36,6 +36,7 @@
                                             <th data-field="gropId" >그룹코드</th>
                                             <th data-field="codeNm" data-formatter="codeNameLink">코드 그룹명</th>
                                             <th data-field="desc" >Description</th>
+                                            <th data-field="gropId" data-formatter="removeFormatter1" width="10%">삭제</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -81,7 +82,7 @@
                                             <th data-field="code">코드</th>
                                             <th data-field="codeNm">코드명</th>
                                             <th data-field="desc">Description</th>
-                                            <th data-field="code" data-formatter="removeFormatter" width="10%">삭제</th>
+                                            <th data-field="code" data-formatter="removeFormatter2" width="10%">삭제</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -97,3 +98,47 @@
                 </div>
                 <!-- /.col-lg-6 -->
             </div>
+	<!-- Modal -->
+	<div class="modal fade" id="regCodeGRP" tabindex="-1" role="dialog" aria-labelledby="codeLabel">
+		<div class="modal-dialog modal-default" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="codeLabel">코드 그룹 등록</h4>
+				</div>
+				<div class="modal-body">
+					<!-- contents -->
+					<form class="form-horizontal narrow2">
+						<input type="hidden" name="code" value="GRP" />
+						<input type="hidden" name="mngYn" value="Y" />
+						<div class="form-group">
+							<label class="control-label col-sm-2">그룹코드</label>
+							<div class="col-sm-4">
+								<input type="text" name="gropId" class="form-control input-sm" data-validation="required" />
+							</div>
+							<label class="control-label col-sm-2">코드 그룹명</label>
+							<div class="col-sm-4">
+								<input type="text" name="codeNm" class="form-control input-sm" data-validation="required" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">Description</label>
+							<div class="col-sm-10">
+								<input type="text" name="desc" class="form-control input-sm" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="modal-footer">
+								<button type="submit" class="btn btn-primary create">등록하기</button>
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</form>
+	
+				</div>
+				
+			</div>
+		</div>
+	</div>

@@ -140,6 +140,7 @@
     <script src="${res}/js/bootstrap-table.min.js"></script>
 	<script src="${res}/js/bootstrap-table-ko-KR.js"></script>
 	<script src="${res}/js/jquery.ellipsis.min.js"></script>
+	<script src="${res}/js/jquery.custom.js"></script>
     
     <!-- Our JavaScript -->
 	<tiles:insertAttribute name="common-js" />

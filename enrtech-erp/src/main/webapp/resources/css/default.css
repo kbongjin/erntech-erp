@@ -3,21 +3,26 @@
     margin-top: 50px;
 }
 
-.cnstrct.modal-dialog {
-    width: 900px;
+.modal-defult {
+    width: 700px;
 }
 .modal-open .ui-datepicker{
 	z-index:1151 !important;
 }
 
-label.control-label {
+form.narrow label.col-sm-2 {
 	padding-left: 5px;
-}
-label.col-sm-2 {
 	width: 15%;
-}
-.col-sm-2 {
 	padding-right: 5px;
+}
+
+form.narrow2 label.col-sm-2 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.form-group .modal-footer {
+	padding-bottom: 0;
 }
 
 label.inner {

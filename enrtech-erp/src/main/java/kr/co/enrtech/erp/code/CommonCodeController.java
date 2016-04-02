@@ -53,41 +53,20 @@ public class CommonCodeController {
 	
 	@RequestMapping(value="/create")
 	@ResponseBody
-	public SimpleJsonResponse create(CommonCode commonCode){
+	public SimpleJsonResponse create(SimpleJsonResponse jsonRes, CommonCode commonCode){
 		
-		SimpleJsonResponse jsonRes = new SimpleJsonResponse();
-		try{
-			service.insertCommonCode(commonCode);
-			jsonRes.setMsg("사용자가 정상적으로 생성되었습니다.");
-			
-		}catch(Exception e){
-			
-			jsonRes.setSuccess(false);
-			jsonRes.setMsg("사용자 생성 중 에러가 발생하였습니다.");
-			
-			e.printStackTrace();
-		}
-		
+		service.insertCommonCode(commonCode);
+		jsonRes.setMsg("사용자가 정상적으로 생성되었습니다.");
 		
 		return jsonRes;
 	}
 	
 	@RequestMapping(value="/update")
 	@ResponseBody
-	public SimpleJsonResponse update(CommonCode commonCode){
+	public SimpleJsonResponse update(SimpleJsonResponse jsonRes, CommonCode commonCode){
 		
-		SimpleJsonResponse jsonRes = new SimpleJsonResponse();
-		try{
-			service.updateCommonCode(commonCode);
-			jsonRes.setMsg("사용자 정보가 정상적으로 수정되었습니다.");
-			
-		}catch(Exception e){
-			
-			jsonRes.setSuccess(false);
-			jsonRes.setMsg("사용자 정보 수정 중 에러가 발생하였습니다.");
-			
-			e.printStackTrace();
-		}
+		service.updateCommonCode(commonCode);
+		jsonRes.setMsg("사용자 정보가 정상적으로 수정되었습니다.");
 		
 		
 		return jsonRes;
@@ -95,20 +74,10 @@ public class CommonCodeController {
 	
 	@RequestMapping(value="/delete")
 	@ResponseBody
-	public SimpleJsonResponse delete(CommonCode commonCode){
+	public SimpleJsonResponse delete(SimpleJsonResponse jsonRes, CommonCode commonCode){
 		
-		SimpleJsonResponse jsonRes = new SimpleJsonResponse();
-		try{
-			service.deleteCommonCode(commonCode);
-			jsonRes.setMsg("사용자 정보가 정상적으로 삭제되었습니다.");
-			
-		}catch(Exception e){
-			
-			jsonRes.setSuccess(false);
-			jsonRes.setMsg("사용자 정보 삭제 중 에러가 발생하였습니다.");
-			
-			e.printStackTrace();
-		}
+		service.deleteCommonCode(commonCode);
+		jsonRes.setMsg("사용자 정보가 정상적으로 삭제되었습니다.");
 		
 		return jsonRes;
 	}
