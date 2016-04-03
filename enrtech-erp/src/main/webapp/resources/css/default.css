@@ -3,6 +3,10 @@
     margin-top: 50px;
 }
 
+.modal-body {
+	padding-bottom: 0;
+}
+
 .modal-defult {
     width: 700px;
 }
@@ -16,7 +20,7 @@ form.narrow label.col-sm-2 {
 	padding-right: 5px;
 }
 
-form.narrow2 label.col-sm-2 {
+form.narrow2 label {
 	padding-left: 5px;
 	padding-right: 5px;
 }

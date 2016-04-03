@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="enr.Customer">
+
+	<resultMap id="CustomerMap" type="kr.co.enrtech.erp.cust.Customer">
+		<!-- <id property="id" column="user_id" /> -->
+		<result property="id" column="id"/>
+		<result property="csCode" column="cs_code"/>
+		<result property="csTypeCd" column="cs_type_cd"/>
+		<result property="csNm" column="cs_nm"/>
+		<result property="post" column="post"/>
+		<result property="addr1" column="addr1"/>
+		<result property="addr2" column="addr2"/>
+		<result property="telNo" column="tel_no"/>
+		<result property="faxNo" column="fax_no"/>
+		<result property="uptDt" column="upt_dt"/>
+		<result property="uptUser" column="upt_user"/>
+	</resultMap>
+	
+	<sql id="getCustomerListBase" >
+        SELECT
+        	id
+        	,CONCAT('CS',cs_type_cd,lpad(CAST(cs_code as CHAR(10)), 3, '0')) as cs_code
+        	,cs_type_cd
+        	,cs_nm
+        	,post
+        	,addr1
+        	,addr2
+        	,tel_no
+        	,fax_no
+        	,upt_dt
+        	,upt_user
+        FROM
+        	customer
+        <where>
+			<if test="search != null">
+			cs_nm LIKE concat('%',#{search},'%')
+			</if>
+		</where>
+		LIMIT #{offset}, #{limit}
+    </sql>
+    
+    <select id="getCustomerList" parameterType="searchlistparam" resultMap="CustomerMap">
+        <include refid="getCustomerListBase"/>
+    </select>
+    
+    <select id="getCustomerListTotalCount" parameterType="searchlistparam" resultType="int">
+		SELECT COUNT(*)
+		FROM (
+			<include refid="getCustomerListBase"/>
+		) AS T
+	</select>
+	
+	<select id="getCustomer" parameterType="kr.co.enrtech.erp.cust.Customer" resultMap="CustomerMap">
+        SELECT
+        	id
+        	,cs_code
+        	,cs_type_cd
+        	,cs_nm
+        	,post
+        	,addr1
+        	,addr2
+        	,tel_no
+        	,fax_no
+        	,upt_dt
+        	,upt_user
+        FROM
+        	customer
+        WHERE
+        	id = #{id}
+    </select>
+    
+    <insert id="insertCustomer" parameterType="kr.co.enrtech.erp.cust.Customer" >
+        INSERT INTO customer
+        (
+        	id
+        	,cs_code
+        	,cs_type_cd
+        	,cs_nm
+        	,post
+        	,addr1
+        	,addr2
+        	,tel_no
+        	,fax_no
+        	,upt_dt
+        	,upt_user
+        ) VALUES (
+        	(SELECT * FROM (SELECT ifnull(max(id), 0)+1 from customer ) AS x)
+        	,(SELECT * FROM (SELECT ifnull(max(cs_code), 0)+1 from customer where cs_type_cd = #{csTypeCd} ) AS x)
+        	,#{csTypeCd}
+        	,#{csNm}
+        	,#{post}
+        	,#{addr1}
+        	,#{addr2}
+        	,#{telNo}
+        	,#{faxNo}
+        	,#{uptDt}
+        	,#{uptUser}
+        )
+    </insert>
+    <update id="updateCustomer" parameterType="kr.co.enrtech.erp.cust.Customer" >
+        UPDATE customer
+        SET
+        	id = #{id}
+        	,cs_code = #{csCode}
+        	,cs_type_cd = #{csTypeCd}
+        	,cs_nm = #{csNm}
+        	,post = #{post}
+        	,addr1 = #{addr1}
+        	,addr2 = #{addr2}
+        	,tel_no = #{telNo}
+        	,fax_no = #{faxNo}
+        	,upt_dt = #{uptDt}
+        	,upt_user = #{uptUser}
+        WHERE
+        	id = #{id}
+    </update>
+	<delete id="deleteCustomer" parameterType="kr.co.enrtech.erp.cust.Customer" >
+        DELETE FROM customer
+        WHERE
+        	id = #{id}
+    </delete>
+</mapper>

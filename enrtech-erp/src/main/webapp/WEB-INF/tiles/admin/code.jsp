@@ -24,7 +24,7 @@
 		                            </div>
 								</div>
 								<div class="col-md-4">
-									<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#regCodeGRP">등록하기</button>
+									<button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#regCodeGRP">추가하기</button>
 								</div>
 							</div>
                         	
@@ -72,7 +72,7 @@
 										<input type="text" name="desc" class="form-control input-sm" placeholder="Description" />
 									</div>
 									<div class="col-md-3">
-										<button type="submit" class="btn btn-default btn-sm">등록하기</button>
+										<button type="submit" class="btn btn-default btn-sm">저장하기</button>
 									</div>
 								</div>
 							</form>
