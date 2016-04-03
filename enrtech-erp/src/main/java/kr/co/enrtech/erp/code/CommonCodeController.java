@@ -51,12 +51,24 @@ public class CommonCodeController {
 		return jsonRes;
 	}
 	
+	@RequestMapping(value="/save")
+	@ResponseBody
+	public SimpleJsonResponse save(SimpleJsonResponse jsonRes, CommonCode commonCode){
+		
+		if("insert".equals(commonCode.getHandle())){
+			service.insertCommonCode(commonCode);
+		} else {
+			service.updateCommonCode(commonCode);
+		}
+		
+		return jsonRes;
+	}
+	
 	@RequestMapping(value="/create")
 	@ResponseBody
 	public SimpleJsonResponse create(SimpleJsonResponse jsonRes, CommonCode commonCode){
 		
 		service.insertCommonCode(commonCode);
-		jsonRes.setMsg("사용자가 정상적으로 생성되었습니다.");
 		
 		return jsonRes;
 	}
@@ -66,7 +78,6 @@ public class CommonCodeController {
 	public SimpleJsonResponse update(SimpleJsonResponse jsonRes, CommonCode commonCode){
 		
 		service.updateCommonCode(commonCode);
-		jsonRes.setMsg("사용자 정보가 정상적으로 수정되었습니다.");
 		
 		
 		return jsonRes;
@@ -77,7 +88,6 @@ public class CommonCodeController {
 	public SimpleJsonResponse delete(SimpleJsonResponse jsonRes, CommonCode commonCode){
 		
 		service.deleteCommonCode(commonCode);
-		jsonRes.setMsg("사용자 정보가 정상적으로 삭제되었습니다.");
 		
 		return jsonRes;
 	}

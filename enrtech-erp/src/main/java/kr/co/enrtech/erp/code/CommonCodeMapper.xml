@@ -102,15 +102,14 @@
     <update id="updateCommonCode" parameterType="kr.co.enrtech.erp.common.code.CommonCode" >
         UPDATE common_code
         SET
-        	grop_id = #{gropId}
-        	,code = #{code}
+        	code = #{code}
         	,code_nm = #{codeNm}
         	,prto_seq = #{prtoSeq}
         	,cd_desc = #{desc}
         	,mng_yn = #{mngYn}
         WHERE
-        	code = #{code}
-        	AND grop_id = #{gropId}
+        	grop_id = #{gropId}
+        	AND code = #{code}
     </update>
 	<delete id="deleteCommonCode" parameterType="kr.co.enrtech.erp.common.code.CommonCode" >
         DELETE FROM common_code

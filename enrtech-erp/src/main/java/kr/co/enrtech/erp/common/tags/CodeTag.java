@@ -58,7 +58,7 @@ public class CodeTag extends TagSupport {
 	protected String style;
 	protected String prefix_cd;
 	protected String event;
-	protected String except_cds;
+	protected String except_cds = "GRP";
 	protected String bgcolor;    //코드별 배경색깔을 달리 하기위해 (ref_val1, 2, 3 중 하나).
 	protected int arrange;       //radio, checkbox 인경우 정렬해서 보여주기위한 한row의 column 값.
 	protected String color;      //코드별 색깔을 달리 하기위해 (ref_val1, 2, 3 중 하나).
@@ -79,7 +79,7 @@ public class CodeTag extends TagSupport {
 	}
 
 	public void setExcept_cds(String except_cds) {
-		this.except_cds = except_cds;
+		this.except_cds = except_cds + ",GRP";
 	}
 
 	public void setEvent(String event) {
@@ -243,7 +243,7 @@ public class CodeTag extends TagSupport {
 	public String makeTag()throws Exception{
 		StringBuffer tag = new StringBuffer();
 		
-		ArrayList list = codeHandler.getCodes(this.group_id, this.prefix_cd, this.except_cds);
+		ArrayList list = codeHandler.getCodes(this.group_id, this.except_cds);
 		CommonCode codef = null;
 		//int index = 1;
 		//String style2 = null;

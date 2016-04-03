@@ -100,7 +100,7 @@ public class CommonCodeHandler implements InitializingBean {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	public ArrayList getCodes(String cd_grp, String prefix_cd, String except_cds){
+	public ArrayList getCodes(String cd_grp, String except_cds){
 		ArrayList list = getCodes(cd_grp);
 		ArrayList result = new ArrayList();
 		CommonCode codef = null;
@@ -199,6 +199,10 @@ public class CommonCodeHandler implements InitializingBean {
 			}
 			
 			cntCodes++;
+			
+			if(codes == null) {
+				throw new RuntimeException("common code load fail. gropId:"+temp + " is not found");
+			}
 			codes.add(codef);
 			cd_grp = temp;
 		}

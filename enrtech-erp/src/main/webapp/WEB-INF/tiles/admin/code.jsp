@@ -36,7 +36,7 @@
                                             <th data-field="gropId" >그룹코드</th>
                                             <th data-field="codeNm" data-formatter="codeNameLink">코드 그룹명</th>
                                             <th data-field="desc" >Description</th>
-                                            <th data-field="gropId" data-formatter="removeFormatter1" width="10%">삭제</th>
+                                            <th data-field="gropId" data-formatter="removeFormatter" width="10%">삭제</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -59,7 +59,8 @@
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                         	<form id="cdForm" class="form-horizontal">
-                        		<input type="hidden" id="gropId" name="gropId" value="" />
+                        		<input type="hidden" name="gropId" value="" />
+                        		<input type="hidden" name="handle" value="insert" />
 								<div class="form-group">
 									<div class="col-md-3">
 										<input type="text" name="code" class="form-control input-sm" placeholder="코드" required />
@@ -80,9 +81,9 @@
                                     <thead>
                                         <tr>
                                             <th data-field="code">코드</th>
-                                            <th data-field="codeNm">코드명</th>
+                                            <th data-field="codeNm" data-formatter="codeNameLink">코드명</th>
                                             <th data-field="desc">Description</th>
-                                            <th data-field="code" data-formatter="removeFormatter2" width="10%">삭제</th>
+                                            <th data-field="code" data-formatter="removeFormatter" width="10%">삭제</th>
                                         </tr>
                                     </thead>
                                     <tbody>

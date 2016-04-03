@@ -19,6 +19,7 @@ public class CommonCode {
 	
 	private int offset;
 	private int limit = 10000;
+	private String handle;
 
 	/**
 	 * <pre>
@@ -27,6 +28,14 @@ public class CommonCode {
 	 */
 	public CommonCode() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public String getHandle() {
+		return handle;
+	}
+
+	public void setHandle(String handle) {
+		this.handle = handle;
 	}
 
 	public int getOffset() {
