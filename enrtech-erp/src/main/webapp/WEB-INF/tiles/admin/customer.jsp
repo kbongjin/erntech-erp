@@ -19,7 +19,7 @@
 					</div>
 					<div class="col-md-4">
 						  <div class="input-group custom-search-form">
-			                  <input type="text" class="form-control" placeholder="발주처명">
+			                  <input type="text" class="form-control" placeholder="사명">
 			                  <span class="input-group-btn">
 			                      <button class="btn btn-default" type="button">
 			                          <i class="fa fa-search"></i>
@@ -42,7 +42,7 @@
                           <tr>
                               <th data-width="5%" data-formatter="indexFormatter">#</th>
                               <th data-field="csCode" data-width="12%">코드</th>
-                              <th data-field="csNm" data-formatter="codeNameLink">발주처명</th>
+                              <th data-field="csNm" data-formatter="nameLink2">사명</th>
                               <th data-field="addr1" >주소</th>
                               <th data-field="id" data-formatter="removeFormatter" data-width="8%">삭제</th>
                           </tr>
@@ -63,15 +63,20 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="custLabel">발주처 등록</h4>
+					<h4 class="modal-title" id="custLabel">발주처/시공사 등록</h4>
 				</div>
 				<div class="modal-body">
 					<!-- contents -->
 					<form class="form-horizontal narrow2">
 						<input type="hidden" name="id" />
-						<input type="hidden" name="csTypeCd" />
 						<div class="form-group">
-							<label class="control-label col-sm-2">발주처명</label>
+						    <label class="control-label col-sm-2">Type:</label>
+							<div class="col-md-9">
+								<t:code group_id="CUST_TYPE" name="csTypeCd" styleClass="form-control" />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">사명</label>
 							<div class="col-sm-10">
 								<input type="text" id="csNm" name="csNm" class="form-control input-sm" data-validation="required" />
 							</div>
@@ -86,12 +91,6 @@
 							<label class="control-label col-sm-2">대표전화번호</label>
 							<div class="col-sm-10">
 								<input type="text" id="telNo" name="telNo" class="form-control input-sm" />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">팩스번호</label>
-							<div class="col-sm-10">
-								<input type="text" id="faxNo" name="faxNo" class="form-control input-sm" />
 							</div>
 						</div>
 						<div class="form-group">

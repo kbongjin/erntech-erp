@@ -49,13 +49,16 @@
 						</div>
 						<div class="form-group">
 							<label class="control-label col-sm-2">발주처</label>
-							<div class="col-sm-6">
+							<div class="col-sm-5">
 								<input type="text" id="ownCmpnyId" name="ownCmpnyId" class="form-control input-sm" >
+							</div>
+							<div class="col-sm-2">
+								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#selectCS">선택</button>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="cnstrctCmpnyId" class="control-label col-sm-2">시공사</label>
-							<div class="col-sm-6">
+							<div class="col-sm-5">
 								<input type="text" id="cnstrctCmpnyId" name="cnstrctCmpnyId" class="form-control input-sm" >
 							</div>
 						</div>
@@ -136,6 +139,56 @@
 				</div>
 				
 				
+			</div>
+		</div>
+	</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="selectCS" tabindex="-1" role="dialog" aria-labelledby="selectCSLabel">
+		<div class="cnstrct modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="selectCSLabel">발주처/시공사 선택</h4>
+				</div>
+				<div class="modal-body">
+					<!-- contents -->
+					<div class="row">
+						<div class="col-md-8">
+							  <div class="input-group custom-search-form">
+				                  <input type="text" class="form-control" placeholder="사명">
+				                  <span class="input-group-btn">
+				                      <button class="btn btn-default" type="button">
+				                          <i class="fa fa-search"></i>
+				                      </button>
+				                  </span>
+				              </div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<table id="selCSTbl" class="table table-striped" data-pagination="true" data-side-pagination="server" >
+		                      <thead>
+		                          <tr>
+		                              <th data-width="5%" data-formatter="radioFormatter">#</th>
+		                              <th data-field="csCode" data-width="12%">코드</th>
+		                              <th data-field="csNm" data-formatter="nameLink2">사명</th>
+		                              <th data-field="addr1" >주소</th>
+		                          </tr>
+		                      </thead>
+		                      <tbody>
+		                          
+		                      </tbody>
+		                  	</table>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="submit" id="btnCreate" class="btn btn-primary">등록하기</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
 			</div>
 		</div>
 	</div>

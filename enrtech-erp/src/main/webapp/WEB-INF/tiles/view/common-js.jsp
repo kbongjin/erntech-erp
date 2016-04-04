@@ -115,5 +115,11 @@
 	    function nameLink(value, row, index){
     		return '<a href="' + contextPath + '/contract/main/'+ row.contractId +'">' + value + '</a>';
     	}
+	    function nameLink2(value, row, index){
+    		return '<a href="#">' + value + '</a>';
+    	}
+	    function removeFormatter(value, row, index) {
+	    	return '<a class="remove" href="#" title="Remove" ><i class="glyphicon glyphicon-trash text-danger"></i></a>';
+	    }
     </script>
       

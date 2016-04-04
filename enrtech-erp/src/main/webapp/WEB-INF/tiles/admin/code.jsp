@@ -34,7 +34,7 @@
                                         <tr>
                                             <th data-formatter="indexFormatter">#</th>
                                             <th data-field="gropId" >그룹코드</th>
-                                            <th data-field="codeNm" data-formatter="codeNameLink">코드 그룹명</th>
+                                            <th data-field="codeNm" data-formatter="nameLink2">코드 그룹명</th>
                                             <th data-field="desc" >Description</th>
                                             <th data-field="gropId" data-formatter="removeFormatter" width="10%">삭제</th>
                                         </tr>
@@ -81,7 +81,7 @@
                                     <thead>
                                         <tr>
                                             <th data-field="code">코드</th>
-                                            <th data-field="codeNm" data-formatter="codeNameLink">코드명</th>
+                                            <th data-field="codeNm" data-formatter="nameLink2">코드명</th>
                                             <th data-field="desc">Description</th>
                                             <th data-field="code" data-formatter="removeFormatter" width="10%">삭제</th>
                                         </tr>

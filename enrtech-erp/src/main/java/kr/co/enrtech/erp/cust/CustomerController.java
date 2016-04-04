@@ -50,24 +50,19 @@ public class CustomerController {
 		return jsonRes;
 	}
 	
-	@RequestMapping("/create")
+	@RequestMapping("/save")
 	@ResponseBody
 	public SimpleJsonResponse create(SimpleJsonResponse jsonRes, Customer customer){
 		
-		service.insertCustomer(customer);
-		
+		if (customer.getId() > 0) {
+			service.updateCustomer(customer);
+		} else {
+			service.insertCustomer(customer);
+		}
 		
 		return jsonRes;
 	}
 	
-	@RequestMapping("/update")
-	@ResponseBody
-	public SimpleJsonResponse update(SimpleJsonResponse jsonRes, Customer customer){
-		
-		service.updateCustomer(customer);
-		
-		return jsonRes;
-	}
 	
 	@RequestMapping("/delete")
 	@ResponseBody
