@@ -12,7 +12,10 @@
 	    	
 	    	$('#listTbl').bootstrapTable({
 	    	    url: contextPath + '/contract/list',
-	    	    ajaxOptions: {method: 'POST'}
+	    	    ajaxOptions: {method: 'POST'},
+	    	    onLoadSuccess: function(data) {
+	    	    	$('#listTbl tr > td:nth-child(2) > a').ellipsis();
+	    	    }
 	    	});
 	    	
 	    	

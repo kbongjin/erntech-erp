@@ -2,34 +2,27 @@
 <%@ taglib uri="/WEB-INF/tld/tags.tld" prefix="t" %>
 	<div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">발주처/시공사 관리</h1>
+            <h3 class="page-header">발주처/시공사 관리</h3>
         </div>
     </div>
     <div class="row">
     	<div class="col-md-9">
-			<form class="form-horizontal bar" >
+			<form class="form-inline bar" >
 				<div class="form-group">
-					<div class="col-md-3">
-						<div class="row">
-							<label class="control-label col-md-3">Type:</label>
-							<div class="col-md-9">
-								<t:code group_id="CUST_TYPE" name="csTypeCd" styleClass="form-control" />
-							</div>
-						</div>
-					</div>
-					<div class="col-md-4">
-						  <div class="input-group custom-search-form">
-			                  <input type="text" class="form-control" placeholder="사명">
-			                  <span class="input-group-btn">
-			                      <button class="btn btn-default" type="button">
-			                          <i class="fa fa-search"></i>
-			                      </button>
-			                  </span>
-			              </div>
-					</div>
-					<div class="col-md-3">
-						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#regCust">추가하기</button>
-					</div>
+					<label for="csTypeCd" class="control-label">Type:</label>
+					<t:code group_id="CUST_TYPE" name="csTypeCd" styleClass="form-control input-sm" />
+				</div>
+				<div class="form-group">
+					<label class="sr-only" >사명</label>
+    				<div class="input-group input-group-sm">
+						 <input type="text" class="form-control" placeholder="사명">
+		                 <span class="input-group-btn">
+		                     <button class="btn btn-default" type="button">
+		                          <i class="fa fa-search"></i>
+		                     </button>
+		                 </span>
+		            </div>
+					<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#regCust">추가하기</button>
 				</div>
 			</form>
 		</div>
@@ -72,7 +65,7 @@
 						<div class="form-group">
 						    <label class="control-label col-sm-2">Type:</label>
 							<div class="col-md-9">
-								<t:code group_id="CUST_TYPE" name="csTypeCd" styleClass="form-control" />
+								<t:code group_id="CUST_TYPE" name="csTypeCd" styleClass="form-control input-sm" />
 							</div>
 						</div>
 						<div class="form-group">

@@ -3,8 +3,14 @@
     margin-top: 50px;
 }
 
+.page-header {
+    padding-bottom: 9px;
+    margin: 20px 0 10px;
+    border-bottom: 1px solid #eee;
+}
+
 .modal-body {
-	padding-bottom: 0;
+	padding-bottom: 3;
 }
 
 .modal-defult {
@@ -12,6 +18,19 @@
 }
 .modal-open .ui-datepicker{
 	z-index:1151 !important;
+}
+
+form.bar {
+	margin-bottom: 7px;
+}
+
+.form-group {
+    margin-bottom: 7px;
+}
+
+.form-group .form-inline {
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 form.narrow label.col-sm-2 {

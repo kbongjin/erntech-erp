@@ -23,13 +23,13 @@
 						<div class="form-group">
 							<label for="inputIssueType" class="control-label col-sm-2">계약 유형</label>
 							<div class="col-sm-3">
-								<t:code group_id="C_TYPE1" name="contractType1" styleClass="form-control" firstOption="::선택하세요::"/>
+								<t:code group_id="C_TYPE1" name="contractType1" styleClass="form-control input-sm" firstOption="::선택하세요::"/>
 							</div>
 							<div class="col-sm-3">
-								<t:code group_id="C_TYPE2" name="contractType2" styleClass="form-control" firstOption="::선택하세요::"/>
+								<t:code group_id="C_TYPE2" name="contractType2" styleClass="form-control input-sm" firstOption="::선택하세요::"/>
 							</div>
 							<div class="col-sm-3">
-								<t:code group_id="C_TYPE3" name="contractType3" styleClass="form-control" firstOption="::선택하세요::"/>
+								<t:code group_id="C_TYPE3" name="contractType3" styleClass="form-control input-sm" firstOption="::선택하세요::"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -44,7 +44,7 @@
 			                </div>
 							<label class="control-label col-sm-2">공사범위</label>
 							<div class="col-sm-3">
-								<t:code group_id="C_WAY" name="cnstrctWay" styleClass="form-control" firstOption="::선택하세요::"/>
+								<t:code group_id="C_WAY" name="cnstrctWay" styleClass="form-control input-sm" firstOption="::선택하세요::"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -53,7 +53,7 @@
 								<input type="text" id="ownCmpnyId" name="ownCmpnyId" class="form-control input-sm" >
 							</div>
 							<div class="col-sm-2">
-								<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#selectCS">선택</button>
+								<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#selectCS">선택</button>
 							</div>
 						</div>
 						<div class="form-group">
