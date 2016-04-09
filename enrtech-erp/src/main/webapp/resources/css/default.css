@@ -44,8 +44,18 @@ form.narrow2 label {
 	padding-right: 5px;
 }
 
+form.narrow3 label, form div.row label.col-sm-1 {
+	padding-left: 5px;
+	width: 12%;
+	padding-right: 0;
+}
+
 .form-group .modal-footer {
 	padding-bottom: 0;
+}
+/* form 안의 nesting columns 인경우 col-sm-2 인경우 input,select 의 with를 좁게 */
+form div.row > div.col-sm-2 {
+	width: 115px;
 }
 
 label.inner {
@@ -74,88 +84,24 @@ button.modify {
 	width: 80%;
 	height: 500px;
 }
-
-.ui-layout-container, .ui-layout-pane {
-  -webkit-box-sizing: content-box;
-     -moz-box-sizing: content-box;
-          box-sizing: content-box;
+.well {
+    padding: 10px 0 10px 0;
+    margin-bottom: 10px;
 }
 
-/*
-.spinner {
-  display: inline-block;
-  opacity: 0;
-  width: 0;
-
-  -webkit-transition: opacity 0.25s, width 0.25s;
-  -moz-transition: opacity 0.25s, width 0.25s;
-  -o-transition: opacity 0.25s, width 0.25s;
-  transition: opacity 0.25s, width 0.25s;
+legend {
+    display: block;
+    width: 100%;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: inherit;
+    color: #a94442;
+    border: 0;
+    border-bottom: none;
 }
 
-.has-spinner.active {
-  cursor:progress;
+.nav-tabs>li.active>a {
+    background-color: #eee;
 }
-
-.has-spinner.active .spinner {
-  opacity: 1;
-  width: auto;
-}
-
-.has-spinner.btn-mini.active .spinner {
-    width: 10px;
-}
-
-.has-spinner.btn-small.active .spinner {
-    width: 13px;
-}
-
-.has-spinner.btn.active .spinner {
-    width: 16px;
-}
-
-.has-spinner.btn-large.active .spinner {
-    width: 19px;
-}
-
-
-
-
-.isloading-wrapper.isloading-right {
-  margin-left: 10px;
-}
-.isloading-overlay {
-  position: relative;
-  text-align: center;
-}
-.isloading-overlay .isloading-wrapper {
-  background: #FFFFFF;
-  -webkit-border-radius: 7px;
-  -webkit-background-clip: padding-box;
-  -moz-border-radius: 7px;
-  -moz-background-clip: padding;
-  border-radius: 7px;
-  background-clip: padding-box;
-  display: inline-block;
-  margin: 0 auto;
-  padding: 10px 20px;
-  top: 10%;
-  z-index: 9000;
-}
-*/
-/* fly alert
-.flyover {
-   margin-top:-200px;
-   overflow: hidden;
-   position: fixed;
-   width: 50%;
-   opacity: 0.9;
-   z-index: 1050;
-   transition: all 1s ease;
-}
- 
-.flyover.in {
-  margin-top: 5px;
-
-}
- */

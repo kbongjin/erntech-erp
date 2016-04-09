@@ -7,6 +7,7 @@
 		<!-- <id property="id" column="user_id" /> -->
 		<result property="id" column="id"/>
 		<result property="csCode" column="cs_code"/>
+		<result property="csCodeNm" column="cs_code_nm"/>
 		<result property="csTypeCd" column="cs_type_cd"/>
 		<result property="csNm" column="cs_nm"/>
 		<result property="post" column="post"/>
@@ -21,7 +22,8 @@
 	<sql id="getCustomerListBase" >
         SELECT
         	id
-        	,CONCAT('CS',cs_type_cd,lpad(CAST(cs_code as CHAR(10)), 3, '0')) as cs_code
+        	,cs_code
+        	,CONCAT('CS',cs_type_cd,lpad(CAST(cs_code as CHAR(10)), 3, '0')) as cs_code_nm
         	,cs_type_cd
         	,cs_nm
         	,post
@@ -95,23 +97,21 @@
         	,#{addr2}
         	,#{telNo}
         	,#{faxNo}
-        	,#{uptDt}
+        	,NOW()
         	,#{uptUser}
         )
     </insert>
     <update id="updateCustomer" parameterType="kr.co.enrtech.erp.cust.Customer" >
         UPDATE customer
         SET
-        	id = #{id}
-        	,cs_code = #{csCode}
-        	,cs_type_cd = #{csTypeCd}
+        	cs_type_cd = #{csTypeCd}
         	,cs_nm = #{csNm}
         	,post = #{post}
         	,addr1 = #{addr1}
         	,addr2 = #{addr2}
         	,tel_no = #{telNo}
         	,fax_no = #{faxNo}
-        	,upt_dt = #{uptDt}
+        	,upt_dt = NOW()
         	,upt_user = #{uptUser}
         WHERE
         	id = #{id}

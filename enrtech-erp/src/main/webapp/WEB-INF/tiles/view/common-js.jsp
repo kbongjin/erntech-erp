@@ -19,7 +19,8 @@
 	    	
 	    	$('div.modal').on('hidden.bs.modal', function (e) {
 	    		// 등록창 닫을때 데이타 reset.
-	    		$(this).find( "form" )[0].reset();
+	    		//$(this).find( "form" )[0].reset();//sometimes not working
+	    		$.resetForm($(this).find( "form" ));
 	    		
 	    	});
 	    	
@@ -74,7 +75,7 @@
 			$(document).ajaxStop(hideLoading);
 			
 			$( document ).ajaxSuccess(function( event, xhr, settings ) {
-			  if ( settings.url.lastIndexOf('create') > -1 || settings.url.lastIndexOf('update') > -1) {
+			  if ( settings.url.lastIndexOf('create') > -1 || settings.url.lastIndexOf('update') > -1 || settings.url.lastIndexOf('save') > -1) {
 				  $.growl.notice({ message: "저장 완료!" });
 			  } else if ( settings.url.lastIndexOf('delete') > -1 ) {
 				  $.growl.notice({ message: "삭제 완료!" });
@@ -107,6 +108,12 @@
 	    			window.location.href = contextPath ;
   				});
 			});
+			
+			// active tab background-color setting.
+			$('.nav-tabs>li>a').click(function(e){
+				$('.nav-tabs>li>a').css("background-color","");
+				$(this).css("background-color","#eee");
+			});
 
 	    });
 	    function indexFormatter(value, row, index) {
@@ -120,6 +127,9 @@
     	}
 	    function removeFormatter(value, row, index) {
 	    	return '<a class="remove" href="#" title="Remove" ><i class="glyphicon glyphicon-trash text-danger"></i></a>';
+	    }
+	    function editFormatter(value, row, index) {
+	    	return '<a class="edit" href="#" title="Edit" ><i class="fa fa-edit fa-fw"></i></a> ';
 	    }
     </script>
       

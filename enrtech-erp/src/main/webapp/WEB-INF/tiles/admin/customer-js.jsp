@@ -42,6 +42,7 @@
 	    		
 	    		if(clickRow) {
 	    			$.setFormVal("#regCust form", clickRow);
+	    			clickRow = null;
 	    			
 	    		} else {
 	    			var csTypeCd = $('#csTypeCd').val();
@@ -50,6 +51,7 @@
 	    		
 	    	});
 	    	
+	    	/*
 	    	$('#regCust').on('hidden.bs.modal', function (e) {
 	    		// 등록창 닫을때 데이타 reset.
 	    		$(this).find( "form" )[0].reset();
@@ -57,7 +59,7 @@
 	    			clickRow = null;
 	    		}
 	    	});
-	    	
+	    	*/
 	    	
 	    	$.onModalSubmit("#regCust", "/admin/cust/save", function(resJson){
 	    		$table.bootstrapTable('refresh');

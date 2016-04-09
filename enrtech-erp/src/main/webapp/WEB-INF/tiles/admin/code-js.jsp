@@ -4,6 +4,7 @@
 	    $( document ).ready(function() {
 	    	
 	    	var selectedGropId = null;
+	    	var clickRow = null;
 	    	
 	    	$('#grpTbl').bootstrapTable({
 	    	    url: contextPath + '/admin/code/list',
@@ -38,6 +39,10 @@
 		    	    		   });
 		    			    }
 		    			});
+	    	    	} else if($element.find('a.edit').length > 0) {
+	    	    		
+	    	    		clickRow = row;
+	    	    		$('#regCodeGRP').modal('show');
 	    	    	}
 	    	    }
 	    	});
@@ -84,7 +89,18 @@
 	    	    }
 	    	});
 	    	
-	    	$.onModalSubmit("#regCodeGRP", "/admin/code/create", function(resJson){
+	    	//hidden.bs.modal event 는 common-js.jsp 에서 처리.
+			$('#regCodeGRP').on('shown.bs.modal', function (e) {
+	    		
+	    		if(clickRow) {
+	    			$.setFormVal("#regCodeGRP form", $.extend(clickRow, {handle:'update'}));
+	    			clickRow = null;
+	    		} else {
+	    			$.setFormVal("#regCodeGRP form", {id:'', csCode:'', handle:'insert'});
+	    		}
+	    	});
+	    	
+	    	$.onModalSubmit("#regCodeGRP", "/admin/code/save", function(resJson){
 	    		$('#grpTbl').bootstrapTable('refresh');
 	    	});
 	    	

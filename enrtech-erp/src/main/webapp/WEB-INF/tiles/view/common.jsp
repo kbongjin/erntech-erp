@@ -53,13 +53,16 @@
 								<input type="text" id="ownCmpnyId" name="ownCmpnyId" class="form-control input-sm" >
 							</div>
 							<div class="col-sm-2">
-								<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#selectCS">선택</button>
+								<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#selectCS">선택</button>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="cnstrctCmpnyId" class="control-label col-sm-2">시공사</label>
 							<div class="col-sm-5">
 								<input type="text" id="cnstrctCmpnyId" name="cnstrctCmpnyId" class="form-control input-sm" >
+							</div>
+							<div class="col-sm-2">
+								<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#selectCS">선택</button>
 							</div>
 						</div>
 						<div class="form-group control-group">
@@ -157,7 +160,7 @@
 					<!-- contents -->
 					<div class="row">
 						<div class="col-md-8">
-							  <div class="input-group custom-search-form">
+							  <div class="input-group custom-search-form input-group-sm">
 				                  <input type="text" class="form-control" placeholder="사명">
 				                  <span class="input-group-btn">
 				                      <button class="btn btn-default" type="button">

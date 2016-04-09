@@ -6,6 +6,18 @@
 
 (function($) {
 	
+	$.resetForm = function($form) {
+		
+		if ($form.length > 0) {
+			$form[0].reset();
+			
+			$form.find('input, select').each(function(index, input){
+				$(input).val('');
+			});
+		}
+		
+	};
+	
 	
 	$.setFormVal = function(formSelector, valueObj) {
 		

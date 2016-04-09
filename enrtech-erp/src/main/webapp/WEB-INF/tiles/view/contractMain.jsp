@@ -2,7 +2,7 @@
 <%@ taglib uri="/WEB-INF/tld/tags.tld" prefix="t" %>
 	<div class="row">
         <div class="col-lg-12">
-            <h3 class="page-header">수주 상세</h3>
+            <h3 class="page-header">수주 상세 <small>(수주201604-0099)</small></h3>
         </div>
     </div>
     
@@ -14,6 +14,31 @@
 	    		<fieldset disabled>
 	    		<input type="hidden" name="contractId" value="" />
 	    		<input type="hidden" name="state" value="" />
+	    		<div class="form-group">
+					<label class="control-label col-sm-2">발주처</label>
+					<div class="col-sm-6">
+						<div class="input-group input-group-sm">
+							<input type="text" name="ownCmpnyId" class="form-control input-sm" >
+							<label class="input-group-addon btn" data-toggle="modal" data-target="#selectCS">선택 </label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">시공사1(원도급)</label>
+					<div class="col-sm-3">
+						<div class="input-group input-group-sm">
+							<input type="text" name="cnstrctCmpnyId" class="form-control input-sm" >
+							<label class="input-group-addon btn" data-toggle="modal" data-target="#selectCS">선택 </label>
+						</div>
+					</div>
+					<label class="control-label col-sm-2">시공사2(하도급)</label>
+					<div class="col-sm-3">
+						<div class="input-group input-group-sm">
+							<input type="text" name="cnstrctCmpnyId2" class="form-control input-sm" >
+							<label class="input-group-addon btn" data-toggle="modal" data-target="#selectCS">선택 </label>
+						</div>
+					</div>
+				</div>
 		    	<div class="form-group">
 					<label class="control-label col-sm-2">공사명</label>
 					<div class="col-sm-6">
@@ -27,13 +52,13 @@
 				</div>
 				<div class="form-group">
 					<label class="control-label col-sm-2">계약 유형</label>
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<t:code group_id="C_TYPE1" name="contractType1" styleClass="form-control input-sm" firstOption="::선택하세요::" />
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<t:code group_id="C_TYPE2" name="contractType2" styleClass="form-control input-sm" firstOption="::선택하세요::" />
 					</div>
-					<div class="col-sm-3">
+					<div class="col-sm-2">
 						<t:code group_id="C_TYPE3" name="contractType3" styleClass="form-control input-sm" firstOption="::선택하세요::" />
 					</div>
 				</div>
@@ -50,6 +75,28 @@
 					<label class="control-label col-sm-2">공사범위</label>
 					<div class="col-sm-3">
 						<t:code group_id="C_WAY" name="cnstrctWay" styleClass="form-control input-sm" firstOption="::선택하세요::" />
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2">계약금액</label>
+					<div class="col-sm-10">
+						<div class="row">
+							<div class="col-sm-2">
+								<input type="text" name="a" class="form-control input-sm" disabled />
+							</div>
+							<label class="control-label col-sm-1">실행금액</label>
+							<div class="col-sm-2">
+								<input type="text" name="b" class="form-control input-sm" disabled />
+							</div>
+							<label class="control-label col-sm-1">실행률</label>
+							<div class="col-sm-2">
+								<input type="text" name="c" class="form-control input-sm" disabled />
+							</div>
+							<label class="control-label col-sm-1">영업수수료</label>
+							<div class="col-sm-2">
+								<input type="text" name="d" class="form-control input-sm" disabled />
+							</div>
+						</div>
 					</div>
 				</div>
 				</fieldset>
@@ -71,18 +118,7 @@
   			<div class="panel-body">
 	    	<form class="form-horizontal cform cform2">
 	    		<fieldset disabled>
-		    	<div class="form-group">
-					<label class="control-label col-sm-2">발주처</label>
-					<div class="col-sm-6">
-						<input type="text" name="ownCmpnyId" class="form-control input-sm" >
-					</div>
-				</div>
-				<div class="form-group">
-					<label class="control-label col-sm-2">시공사</label>
-					<div class="col-sm-6">
-						<input type="text" name="cnstrctCmpnyId" class="form-control input-sm" >
-					</div>
-				</div>
+		    	
 				<div class="form-group">
 					<label class="control-label col-sm-2">착공예정일</label>
 					<div class="col-sm-10">
@@ -184,15 +220,16 @@
 						<div class="form-group">
 							<label class="control-label">차수:</label>
 							<select class="form-control input-sm">
+								<option>3</option>
 								<option>2</option>
 								<option>1</option>
-								<option>0</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<span style="margin-right: 20px;"></span>
 							<button type="button" class="btn btn-primary btn-sm cdetil-reg" data-toggle="modal" data-target="#regCondetail">내역등록</button>
 							<button type="button" class="btn btn-default btn-sm" >삭제</button>
+							<span style="margin-right: 30px;"></span>
 							<button type="button" class="btn btn-primary btn-sm" >발주서등록</button>
 						</div>
 					</form>
@@ -273,87 +310,149 @@
 	<!-- Modal -->
 	<div class="modal fade" id="regCondetail" tabindex="-1" role="dialog" aria-labelledby="cdetailLabel">
 		<div class="cnstrct modal-dialog" role="document">
-			<div class="modal-content">
+			<div class="modal-content modal-lg">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="cdetailLabel">계약 내역 등록</h4>
+					<h4 class="modal-title" id="cdetailLabel">수주 내역 등록</h4>
 				</div>
 				<div class="modal-body">
 				
-					<form class="form-horizontal">
-
-						<div class="form-group">
-							<label class="control-label col-sm-2">품명코드</label>
-							<div class="col-sm-4">
-								<input type="text" id="productCd" name="productCd" class="form-control input-sm" required />
+					<form class="form-horizontal narrow3">
+						<fieldset class="well scheduler-border">
+    						<legend class="scheduler-border">수주내역</legend>
+							<div class="form-group">
+								<label class="control-label col-sm-2">품명</label>
+								<div class="col-sm-8">
+									<select name="productCd" class="form-control input-sm" data-validation="required" >
+										<option>[AB123]교량용 교좌장치(양방향고정)</option>
+										<option>[AB124]교량용 교좌장치(일방향고정)</option>
+										<option>[AB125]교량용 교좌장치(일방향가동)</option>
+									</select>
+								</div>
 							</div>
-							<label class="control-label col-sm-2">규격코드</label>
-							<div class="col-sm-4">
-								<input type="text" id="standardCd" name="standardCd" class="form-control input-sm" required />
+							<div class="form-group">
+								<label class="control-label col-sm-2">규격</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-2">
+											<select name="standardCd" class="form-control input-sm" data-validation="required" >
+												<option>300*4</option>
+												<option>300*5</option>
+												<option>300*6</option>
+											</select>
+										</div>
+										<label class="control-label col-sm-1">단위</label>
+										<div class="col-sm-2">
+											<select name="unit" class="form-control input-sm" data-validation="required" >
+												<option>M</option>
+												<option>EA</option>
+												<option>M2</option>
+												<option>M3</option>
+											</select>
+										</div>
+										<label class="control-label col-sm-1">수량</label>
+										<div class="col-sm-2">
+											<input type="text" name="qty" class="form-control input-sm" data-validation="required" />
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">단위</label>
-							<div class="col-sm-4">
-								<input type="text" id="unit" name="unit" class="form-control input-sm" required />
+							<div class="form-group">
+								<label class="control-label col-sm-2">단가</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-2">
+											<input type="text" name="unitPrice" class="form-control input-sm" required />
+										</div>
+										<label class="control-label col-sm-1">수주금액</label>
+										<div class="col-sm-2">
+											<input type="text" name="price" class="form-control input-sm" disabled />
+										</div>
+										<label class="control-label col-sm-1">설치단가</label>
+										<div class="col-sm-2">
+											<input type="text" name="excSlQty" class="form-control input-sm" required />
+										</div>
+										<label class="control-label col-sm-1">설치금액</label>
+										<div class="col-sm-2">
+											<input type="text" name="excSlUprice" class="form-control input-sm" disabled />
+										</div>
+									</div>
+								</div>
 							</div>
-							<label class="control-label col-sm-2">수량</label>
-							<div class="col-sm-4">
-								<input type="text" id="qty" name="qty" class="form-control input-sm" required />
+							<div class="form-group">
+								<label class="control-label col-sm-2">합계단가</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-2">
+											<input type="text" name="unitPrice" class="form-control input-sm" disabled />
+										</div>
+										<label class="control-label col-sm-1">합계금액</label>
+										<div class="col-sm-2">
+											<input type="text" name="price" class="form-control input-sm" disabled />
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">단가</label>
-							<div class="col-sm-4">
-								<input type="text" id="unitPrice" name="unitPrice" class="form-control input-sm" required />
+						</fieldset>
+						<fieldset class="well scheduler-border">
+    						<legend class="scheduler-border">실행내역</legend>
+							<div class="form-group">
+								<label class="control-label col-sm-2">생산공장</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-5">
+											<select name="factory" class="form-control input-sm" data-validation="required" >
+												<option>[CS30001]ADC공장</option>
+												<option>[CS30002]BBB공장</option>
+												<option>[CS30003]CCC공장</option>
+											</select>
+										</div>
+										<label class="control-label col-sm-1">단가</label>
+										<div class="col-sm-2">
+											<input type="text" name="excSlQty" class="form-control input-sm" required />
+										</div>
+										<label class="control-label col-sm-1">금액</label>
+										<div class="col-sm-2">
+											<input type="text" name="excSlUprice" class="form-control input-sm" disabled/>
+										</div>
+									</div>
+								</div>
 							</div>
-							<label class="control-label col-sm-2">계약금액</label>
-							<div class="col-sm-4">
-								<input type="text" id="price" name="price" class="form-control input-sm" required />
+							<div class="form-group">
+								<label class="control-label col-sm-2">시공팀</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-5">
+											<input type="text" name="sigteam" class="form-control input-sm" />
+										</div>
+										<label class="control-label col-sm-1">단가</label>
+										<div class="col-sm-2">
+											<input type="text" name="excSlQty" class="form-control input-sm" />
+										</div>
+										<label class="control-label col-sm-1">금액</label>
+										<div class="col-sm-2">
+											<input type="text" name="excSlUprice" class="form-control input-sm" disabled/>
+										</div>
+									</div>
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">생산공장</label>
-							<div class="col-sm-4">
-								<input type="text" id="factory" name="factory" class="form-control input-sm" required />
+							<div class="form-group">
+								<label class="control-label col-sm-2">합계단가</label>
+								<div class="col-sm-10">
+									<div class="row">
+										<div class="col-sm-2">
+											<input type="text" name="unitPrice" class="form-control input-sm" disabled />
+										</div>
+										<label class="control-label col-sm-1">합계금액</label>
+										<div class="col-sm-2">
+											<input type="text" name="price" class="form-control input-sm" disabled />
+										</div>
+									</div>
+								</div>
 							</div>
-							<label class="control-label col-sm-2">실행수량(자재)</label>
-							<div class="col-sm-4">
-								<input type="text" id="excJaQty" name="excJaQty" class="form-control input-sm" required />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">실행단가(자재)</label>
-							<div class="col-sm-4">
-								<input type="text" id="excJaUprice" name="excJaUprice" class="form-control input-sm" required />
-							</div>
-							<label class="control-label col-sm-2">실행금액(자재)</label>
-							<div class="col-sm-4">
-								<input type="text" id="excJaPrice" name="excJaPrice" class="form-control input-sm" required />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">실행수량(설치)</label>
-							<div class="col-sm-4">
-								<input type="text" id="excSlQty" name="excSlQty" class="form-control input-sm" required />
-							</div>
-							<label class="control-label col-sm-2">실행단가(설치)</label>
-							<div class="col-sm-4">
-								<input type="text" id="excSlUprice" name="excSlUprice" class="form-control input-sm" required />
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">실행금액(설치)</label>
-							<div class="col-sm-4">
-								<input type="text" id="excSlPrice" name="excSlPrice" class="form-control input-sm" required />
-							</div>
-							<label class="control-label col-sm-2">납품일자</label>
-							<div class="col-sm-4">
-								<input type="text" id="deliveryDt" name="deliveryDt" class="form-control input-sm" required />
-							</div>
-						</div>
+						</fieldset>
 						<div class="form-group">
 							<div class="modal-footer">
 								<button type="submit" class="btn btn-primary">등록하기</button>

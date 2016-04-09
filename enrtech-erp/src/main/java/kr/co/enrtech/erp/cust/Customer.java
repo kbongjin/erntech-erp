@@ -22,6 +22,8 @@ public class Customer {
 	private String faxNo;//팩스번호
 	private java.util.Date uptDt;//최근수정일자
 	private String uptUser;//최근수정자
+	
+	private String csCodeNm;
 
 	/**
 	 * 
@@ -48,12 +50,15 @@ public class Customer {
 	 * @return the csCode
 	 */
 	public String getCsCode() {
-		
-		if(StringUtils.isEmpty(csCode)) {
-			return "CS" + csTypeCd;
-		}
-		
 		return csCode;
+	}
+	
+	public String getCsCodeNm() {
+		return csCodeNm;
+	}
+
+	public void setCsCodeNm(String csCodeNm) {
+		this.csCodeNm = csCodeNm;
 	}
 
 	/**

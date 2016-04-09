@@ -36,7 +36,8 @@
                                             <th data-field="gropId" >그룹코드</th>
                                             <th data-field="codeNm" data-formatter="nameLink2">코드 그룹명</th>
                                             <th data-field="desc" >Description</th>
-                                            <th data-field="gropId" data-formatter="removeFormatter" width="10%">삭제</th>
+                                            <th data-field="edit" data-formatter="editFormatter" width="5%"> </th>
+                                            <th data-field="gropId" data-formatter="removeFormatter" width="5%"> </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -114,6 +115,7 @@
 					<form class="form-horizontal narrow2">
 						<input type="hidden" name="code" value="GRP" />
 						<input type="hidden" name="mngYn" value="Y" />
+						<input type="hidden" name="handle" value="insert" />
 						<div class="form-group">
 							<label class="control-label col-sm-2">그룹코드</label>
 							<div class="col-sm-4">

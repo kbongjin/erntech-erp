@@ -34,7 +34,7 @@
                       <thead>
                           <tr>
                               <th data-width="5%" data-formatter="indexFormatter">#</th>
-                              <th data-field="csCode" data-width="12%">코드</th>
+                              <th data-field="csCodeNm" data-width="12%">코드</th>
                               <th data-field="csNm" data-formatter="nameLink2">사명</th>
                               <th data-field="addr1" >주소</th>
                               <th data-field="id" data-formatter="removeFormatter" data-width="8%">삭제</th>
@@ -62,6 +62,7 @@
 					<!-- contents -->
 					<form class="form-horizontal narrow2">
 						<input type="hidden" name="id" />
+						<input type="hidden" name="csCode" />
 						<div class="form-group">
 						    <label class="control-label col-sm-2">Type:</label>
 							<div class="col-md-9">
@@ -94,7 +95,7 @@
 						</div>
 						<div class="form-group">
 							<div class="modal-footer">
-								<button type="submit" class="btn btn-primary create">등록하기</button>
+								<button type="submit" class="btn btn-primary create">저장하기</button>
 								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 							</div>
 						</div>
