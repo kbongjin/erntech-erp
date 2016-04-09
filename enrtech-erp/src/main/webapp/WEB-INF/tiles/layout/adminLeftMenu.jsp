@@ -22,6 +22,9 @@
                         <li>
                             <a href="${pageContext.request.contextPath}/admin/cust/view"><i class="fa fa-building fa-fw"></i>발주처/시공사</a>
                         </li>
+                         <li>
+                            <a href="#"><i class="fa fa-building fa-fw"></i>품목관리</a>
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-user fa-fw"></i>사용자관리</a>
                         </li>
