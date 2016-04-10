@@ -87,6 +87,24 @@
 	    		   });
 			    }
 			});
+			
+			$('button.reg-bal').click(function (e) {
+				var selections = $("table.cdetail").bootstrapTable('getSelections');
+				
+				if(selections.length == 0) {
+					$.growl.notice({ message: "등록할 품목을 선택해주세요." });
+					return;
+				}
+				
+		    	//alert('getSelections: ' + JSON.stringify(selections));
+		    	$('#regBal').modal('show');
+		    });
+			
+			$('table.ballist').on('load-success.bs.table', function (e, data) {
+				$('table.ballist').editableTableWidget();
+			});
+			
+			
 	    	
 	    });
     </script>

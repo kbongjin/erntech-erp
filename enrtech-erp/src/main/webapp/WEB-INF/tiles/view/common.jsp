@@ -15,6 +15,31 @@
 					<!-- form -->
 					<form class="form-horizontal narrow" >
 						<div class="form-group">
+							<label class="control-label col-sm-2">발주처</label>
+							<div class="col-sm-5">
+								<div class="input-group input-group-sm">
+									<input type="text" name="ownCmpnyId" class="form-control input-sm" >
+									<label class="input-group-addon btn" data-toggle="modal" data-target="#selectCS">선택 </label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="control-label col-sm-2">시공사1(원도급)</label>
+							<div class="col-sm-3">
+								<div class="input-group input-group-sm">
+									<input type="text" name="cnstrctCmpnyId" class="form-control input-sm" >
+									<label class="input-group-addon btn" data-toggle="modal" data-target="#selectCS">선택 </label>
+								</div>
+							</div>
+							<label class="control-label col-sm-2">시공사2(하도급)</label>
+							<div class="col-sm-3">
+								<div class="input-group input-group-sm">
+									<input type="text" name="cnstrctCmpnyId2" class="form-control input-sm" >
+									<label class="input-group-addon btn" data-toggle="modal" data-target="#selectCS">선택 </label>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
 							<label for="cnstrctNm" class="control-label col-sm-2">공사명</label>
 							<div class="col-sm-9">
 								<input type="text" id="cnstrctNm" name="cnstrctNm" class="form-control input-sm" data-validation="required" />
@@ -45,24 +70,6 @@
 							<label class="control-label col-sm-2">공사범위</label>
 							<div class="col-sm-3">
 								<t:code group_id="C_WAY" name="cnstrctWay" styleClass="form-control input-sm" firstOption="::선택하세요::"/>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="control-label col-sm-2">발주처</label>
-							<div class="col-sm-5">
-								<input type="text" id="ownCmpnyId" name="ownCmpnyId" class="form-control input-sm" >
-							</div>
-							<div class="col-sm-2">
-								<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#selectCS">선택</button>
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="cnstrctCmpnyId" class="control-label col-sm-2">시공사</label>
-							<div class="col-sm-5">
-								<input type="text" id="cnstrctCmpnyId" name="cnstrctCmpnyId" class="form-control input-sm" >
-							</div>
-							<div class="col-sm-2">
-								<button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#selectCS">선택</button>
 							</div>
 						</div>
 						<div class="form-group control-group">
